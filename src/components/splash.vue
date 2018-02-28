@@ -99,6 +99,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    // DEBUG
+    display: none;
   }
 
   .backgroundGradient,

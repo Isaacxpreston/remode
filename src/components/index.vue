@@ -1,12 +1,13 @@
 <template>
   <div>
     <splash />
-    
+    <navbar />
   </div>
 </template>
 
 <script>
 import splash from './splash'
+import navbar from './navbar';
 export default {
   data () {
     return {
@@ -14,7 +15,8 @@ export default {
     }
   },
   components: {
-    splash
+    splash,
+    navbar
   }
 }
 </script>
