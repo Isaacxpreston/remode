@@ -1,0 +1,24 @@
+<svg width="1440px" height="800px" viewBox="0 0 1440 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="27.6787109%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F70CF7" offset="0%"></stop>
+            <stop stop-color="#513BF4" offset="30.3710938%"></stop>
+            <stop stop-color="#40DFF7" offset="69.8046875%"></stop>
+            <stop stop-color="#04E400" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="1440" height="800"></rect>
+        <pattern id="pattern-4" width="512" height="512" x="-512" y="-512" patternUnits="userSpaceOnUse">
+            <use xlink:href="#image-5"></use>
+        </pattern>
+    </defs>
+    <g id="opening_tile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-3" fill="white">
+            <use xlink:href="#path-2"></use>
+        </mask>
+        <g id="Mask">
+            <use fill-opacity="0.25" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" xlink:href="#path-2"></use>
+            <use fill-opacity="0.129999995" fill="#000000" xlink:href="#path-2"></use>
+            <use fill-opacity="0.049999997" fill="url(#pattern-4)" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

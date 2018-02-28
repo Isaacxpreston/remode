@@ -1,0 +1,102 @@
+@import './colors';
+
+@font-face {
+  font-family: 'GTWalsheimMedium';
+  src: url('assets/fonts/GTWalsheim/GT-Walsheim-Medium.otf') format('opentype')
+}
+
+@font-face {
+  font-family: 'GTWalsheimRegular';
+  src: url('assets/fonts/GTWalsheim/GT-Walsheim-Regular.otf') format('opentype')
+}
+
+@font-face {
+  font-family: 'Chrono-Bold';
+  src: url('assets/fonts/Chrono/Chrono-Bold.otf') format('opentype')
+}
+
+h1,
+.h1 {
+  /* Heading 1: */
+  font-family: 'GTWalsheimMedium';
+  font-size: 30px;
+  color: $black;
+  letter-spacing: 0.5px;
+  line-height: 36px;
+}
+
+h2,
+.h2 {
+  /* Heading 2: */
+  font-family: 'GTWalsheimMedium';
+  font-size: 24px;
+  color: $black;
+  letter-spacing: 0.33px;
+  line-height: 36px;
+}
+
+h3,
+.h3 {
+  /* Heading 3: */
+  font-family: 'GTWalsheimMedium';
+  font-size: 18px;
+  color: $black;
+  letter-spacing: 0.5px;
+}
+
+.utility {
+  /* Utility: */
+  font-family: 'GTWalsheimRegular';
+  font-size: 12px;
+  color: $black;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+p,
+.p {
+  /* Paragraph: */
+  font-family: 'GTWalsheimRegular';
+  font-size: 18px;
+  color: $black;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  &.large {
+    /* Paragraph Large: */
+    font-family: 'GTWalsheimRegular';
+    font-size: 24px;
+    color: $black;
+    letter-spacing: 0.5px;
+    line-height: 36px;
+  }
+}
+
+.button {
+  /* Button: */
+  font-family: 'Chrono-Bold';
+  font-size: 14px;
+  color: $black;
+  letter-spacing: 1.4px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+a,
+.a {
+  /* Text Link: */
+  font-family: 'GTWalsheimRegular';
+  font-size: 18px;
+  color: $grey;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-decoration: underline;
+  &.small {
+    /* Text Link Small: */
+    font-family: 'GTWalsheimRegular';
+    font-size: 12px;
+    color: $grey;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    text-decoration: underline;
+  }
+}
