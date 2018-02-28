@@ -1,5 +1,5 @@
 @import './colors';
-
+@import './variables';
 @font-face {
   font-family: 'GTWalsheimMedium';
   src: url('assets/fonts/GTWalsheim/GT-Walsheim-Medium.otf') format('opentype')
@@ -23,6 +23,11 @@ h1,
   color: $black;
   letter-spacing: 0.5px;
   line-height: 36px;
+  @media screen and (min-width: $desktop-min) {
+    font-size: 44px;
+    letter-spacing: 0.73px;
+    line-height: 60px;
+  }
 }
 
 h2,
@@ -33,6 +38,11 @@ h2,
   color: $black;
   letter-spacing: 0.33px;
   line-height: 36px;
+  @media screen and (min-width: $desktop-min) {
+    font-size: 38px;
+    letter-spacing: 0.53px;
+    line-height: 48px;
+  }
 }
 
 h3,

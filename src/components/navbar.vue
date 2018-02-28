@@ -31,11 +31,12 @@
 
   .navbar {
     position: fixed;
+    z-index: 99;
     top: 0;
     left: 0;
     width: 100%;
     height: 108px;
-    background: $white;
+    background: $off-white;
     @media screen and (max-width: $mobile-max) {
       height: 60px;
     }

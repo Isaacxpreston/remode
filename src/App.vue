@@ -8,6 +8,6 @@
   @import './scss/global';
 
   body {
-    background: rgba(255, 0, 0, 0.15);
+    margin: 0px;
   }
 </style>
