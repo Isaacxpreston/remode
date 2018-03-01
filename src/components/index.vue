@@ -5,7 +5,8 @@
     <navbar />
 
     <!-- main image row -->
-    <div class="row screen-height full-bleed">
+    <div class="row screen-height-min full-bleed first-row">
+      <div class="col-5 background-image-mobile"></div>
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content vert-center">
@@ -75,7 +76,7 @@
 
     <!-- sideways text row -->
     <div class="row full-bleed screen-height-min with-margins">
-      <div class="col-6 off-black">
+      <div class="col-6 off-black full-mobile">
         <div class="content">
           <div class="attendees-image"></div>
           <div class="vertical-text h2">Attendees</div>
@@ -89,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-6 full-mobile">
         <div class="content">
           <div class="sponsor-image"></div>
           <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
@@ -140,7 +141,7 @@
         </div>
       </div>
       <div class="col-1"></div>
-      <div class="col-5">
+      <div class="col-4">
         <div class="content">
           <div class="h3">Follow Us</div>
           <div class="social-media">
@@ -201,10 +202,14 @@
     width: calc(100% - 24px);
     margin-left: 12px;
     &.screen-height {
-      height: 100vh; // background: rgba(255, 0, 0, 0.15);
+      @media screen and (min-width: $tablet-min) {
+        height: 100vh;
+      }
     }
     &.screen-height-min {
+      @media screen and (min-width: $tablet-min) {
       min-height: 100vh;
+      }
     }
     &.with-margins {
       margin-top: 72px;
@@ -218,6 +223,9 @@
       }
       .col-3 {
         width: calc(100% * (3/12))
+      }
+      .col-4 {
+        width: calc(100% * (4/12))
       }
       .col-5 {
         width: calc(100% * (5/12))
@@ -249,6 +257,11 @@
     width: calc((100% * (1/12)) - 24px); // height: 100%; // background: rgba(255, 0, 0, 0.25);
   }
 
+  .col-4 {
+    position: relative;
+    width: calc((100% * (4/12)) - 24px); // height: 100%;
+  }
+
   .col-5 {
     position: relative;
     width: calc((100% * (5/12)) - 24px); // height: 100%;
@@ -264,7 +277,45 @@
     width: calc((100% * (7/12)) - 24px); // height: 100%;
   }
 
-  .background-image {
+  .full-mobile {
+    @media screen and (max-width: $mobile-max) {
+      width: 100% !important;
+    }
+  }
+
+  .first-row {
+    @media screen and (max-width: $tablet-max) {
+      margin-top: 108px;
+    }
+    @media screen and (max-width: $mobile-max) {
+      display: block;
+      margin-top: 60px;
+      .col-1 {
+        display: none;
+      }
+      .col-5:not(.background-image):not(.background-image-mobile) {
+        width: calc(100% - 48px) !important;
+        margin-left: 24px;
+        > div {
+          transform: none;
+        }
+      }
+      .background-image {
+        display: none;
+      }
+      .background-image-mobile {
+        display: block !important;
+        width: 100% !important;
+        @include aspect-ratio(330, 380)
+      }
+    }
+  }
+
+  .background-image-mobile {
+    display: none;
+  }
+
+  .background-image, .background-image-mobile {
     background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
     background-size: cover;
     background-repeat: no-repeat;
