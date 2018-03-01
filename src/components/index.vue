@@ -103,10 +103,6 @@
       </div>
     </div>
     
-
-
-
-    
     <!-- stay tuned -->
     <div class="form-toggle form-title">
       <div class="h2">Stay Tuned for Updates</div>
@@ -114,25 +110,25 @@
 
     <!-- form buttons -->
     <div class="form-toggle">
-      <div class="form-toggle-button">
+      <div class="form-toggle-button" :class="formToggleAttendingClass" v-on:click="toggleForm('formAttendingClass', 'formToggleAttendingClass')">
         <div class="h3 vert-center">Attending</div>
       </div>
-      <div class="form-toggle-button">
+      <div class="form-toggle-button" :class="formToggleSpeakingClass" v-on:click="toggleForm('formSpeakingClass', 'formToggleSpeakingClass')">
         <div class="h3 vert-center">Speaking</div>
       </div>
-      <div class="form-toggle-button">
+      <div class="form-toggle-button" :class="formToggleSponsoringClass" v-on:click="toggleForm('formSponsoringClass', 'formToggleSponsoringClass')">
         <div class="h3 vert-center">Exhibiting /Sponsoring</div>
       </div>
     </div>
 
     <!-- form injects -->
-    <div class="nf-content-speaking-container">
+    <div class="nf-content-speaking-container" :class="formSpeakingClass">
     </div>
 
-    <div class="nf-content-attending-container">
+    <div class="nf-content-attending-container" :class="formAttendingClass">
     </div>
 
-    <div class="nf-content-sponsoring-container">
+    <div class="nf-content-sponsoring-container" :class="formSponsoringClass">
     </div>
 
     <!-- footer -->
@@ -184,11 +180,9 @@
   .nf-content-speaking-container, .nf-content-attending-container, .nf-content-sponsoring-container {
     position: relative;
     width: 100%;
-  }
-
-
-  .nf-content-speaking-container, .nf-content-sponsoring-container {
-    display: none;
+    &.form-hidden {
+      display: none;
+    }
   }
 
   .debug {
@@ -446,7 +440,7 @@
     transition: all 0.4s ease-in-out;
     border-bottom: 1px solid transparent;
     text-align: center;
-    &:hover {
+    &:hover, &.hovered {
       border-bottom: 1px solid $black;
     }
   }
@@ -494,21 +488,26 @@
   export default {
     data() {
       return {
-        lorem: 'Welcome to Your Vue.js App'
+        lorem: 'Welcome to Your Vue.js App',
+        formAttendingClass: '',
+        formSpeakingClass: 'form-hidden',
+        formSponsoringClass: 'form-hidden',
+        formToggleAttendingClass: '',
+        formToggleSpeakingClass: '',
+        formToggleSponsoringClass: ''
       }
     },
-    components: {
-      splash,
-      navbar,
-      thinkPattern,
-      makePattern,
-      marketPattern,
-      investPattern,
-      facebook,
-      instagram,
-      linkedin,
-      twitter,
-      youtube
+    methods: {
+      toggleForm (form, button) {
+        this.formSpeakingClass = 'form-hidden'
+        this.formAttendingClass = 'form-hidden'
+        this.formSponsoringClass = 'form-hidden'
+        this.formToggleAttendingClass = ''
+        this.formToggleSpeakingClass = '',
+        this.formToggleSponsoringClass = ''
+        this[form] = ''
+        this[button] = 'hovered'
+      }
     },
     mounted() {
 
@@ -535,6 +534,19 @@
         }
       }, 1000)
 
+    },
+    components: {
+      splash,
+      navbar,
+      thinkPattern,
+      makePattern,
+      marketPattern,
+      investPattern,
+      facebook,
+      instagram,
+      linkedin,
+      twitter,
+      youtube
     }
   }
 
