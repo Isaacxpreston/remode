@@ -35,16 +35,24 @@
     <!-- color tiles row -->
     <div class="row">
       <div class="col-3 image-tile rethink">
-        <div class="content"></div>
-      </div>
+        <div class="content">
+          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" />
+        </div>
+      </div>  
       <div class="col-3 image-tile remake">
-        <div class="content"></div>
+        <div class="content">
+          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remake.png" />
+        </div>
       </div>
       <div class="col-3 image-tile remarket">
-        <div class="content"></div>
+        <div class="content">
+          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remarket.png" />
+        </div>
       </div>
       <div class="col-3 image-tile reinvest">
-        <div class="content"></div>
+        <div class="content">
+          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/reinvest.png" />
+        </div>
       </div>
     </div>
 
@@ -77,6 +85,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- stay tuned -->
+    <div class="form-toggle form-title">
+      <div class="h2">Stay Tuned for Updates</div>
+    </div>
 
     <!-- form buttons -->
     <div class="form-toggle">
@@ -96,6 +109,23 @@
 
     </div>
 
+
+    <!-- footer -->
+    <div class="footer row full-bleed">
+      <div class="col-1 off-black"></div>
+      <div class="col-6 off-black">
+        <div class="content">
+          <div class="h3 white">See You In</div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+      <div class="col-5">
+        <div class="content">
+          <div class="h3">Follow Us</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -112,13 +142,16 @@
 
   .off-black {
     background-color: $off-black;
+    color: $white;
+  }
+
+  .white {
+    color: $white;
   }
 
   .nf-content-inject {
     position: relative;
     width: 100%;
-    height: 200px;
-    margin-top: 72px;
   }
 
   .debug {
@@ -156,11 +189,27 @@
       .col-6 {
         width: calc(100% * (6/12))
       }
+      .col-7 {
+        width: calc((100% * (7/12))); // height: 100%;
+      }
     }
   }
 
   .image-tile {
     @include aspect-ratio(330, 380);
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      box-shadow: 0 2px 30px 0 rgba(0,0,0,0.30);
+    }
+    >.content {
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 24px;
+        margin-left: 24px;
+      }
+    }
   }
 
   .col-3 {
@@ -182,6 +231,11 @@
   .col-6 {
     position: relative;
     width: calc((100% * (6/12)) - 24px); // height: 100%;
+  }
+
+  .col-7 {
+    position: relative;
+    width: calc((100% * (7/12)) - 24px); // height: 100%;
   }
 
   .background-image {
@@ -309,14 +363,17 @@
     display: flex;
     width: calc(100% * (10/12));
     height: 72px;
-    background: rgba(255, 0, 0, 0.15);
+    &.form-title {
+      height: auto;
+      padding-bottom: 72px;
+    }
   }
 
   .form-toggle-button {
     position: relative;
     width: calc(100% / 3);
     height: 100%;
-    background: rgba(255, 0, 0, 0.25);
+    background: $white;
     cursor: pointer;
     box-sizing: border-box;
     transition: all 0.4s ease-in-out;
@@ -324,6 +381,19 @@
     text-align: center;
     &:hover {
       border-bottom: 1px solid $black;
+    }
+  }
+
+  // footer
+  .footer {
+    position: relative;
+    width: 100%;
+    margin-top: 172px;
+    .col-7, .col-6, .col-5 {
+      >.content {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
     }
   }
 
@@ -344,18 +414,13 @@
     },
     mounted() {
 
+      // move form content
       var getNfContent = setInterval(function () {
         if (document.getElementById('nf-content-one')) {
           document.querySelector('.nf-content-inject').appendChild(document.getElementById('nf-content-one'))
           clearInterval(getNfContent)
         }
       }, 500)
-
-      // if(document.getElementById('nf-content-one')) {
-      //   document.querySelector('.nf-content-inject').appendChild(document.getElementById('nf-content-one'))
-      // } else {
-      //   console.log('could not find nf content')
-      // }
 
     }
   }
