@@ -40,6 +40,7 @@
           <div class="pattern-container">
             <thinkPattern />
           </div>
+          <div class="p large">Consumer trends for the future and innovations in product and materials.</div>
         </div>
       </div>  
       <div class="col-3 image-tile remake">
@@ -198,23 +199,6 @@
     }
   }
 
-  .image-tile {
-    @include aspect-ratio(330, 380);
-    transition: all 0.4s ease-in-out;
-    &:hover {
-      box-shadow: 0 2px 30px 0 rgba(0,0,0,0.30);
-    }
-    >.content {
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin-top: 24px;
-        margin-left: 24px;
-      }
-    }
-  }
-
   .col-3 {
     position: relative;
     width: calc((100% * (3/12)) - 24px);
@@ -251,7 +235,54 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-  } // colors
+  }
+
+  // image tiles
+
+  .image-tile {
+    @include aspect-ratio(330, 380);
+    transition: all 0.4s ease-in-out;
+    >.content {
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 24px;
+        margin-left: 24px;
+      }
+      .p {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: calc(100% - 48px);
+        margin-left: 24px;
+        color: $white;
+        opacity: 0;
+        transition: all 0.6s ease-in-out;
+      }
+    }
+    &:hover {
+      box-shadow: 0 2px 30px 0 rgba(0,0,0,0.30);
+      .pattern-container {
+        margin-top: 100%;
+      }
+      .p {
+        opacity: 1;
+      }
+    }
+  }
+
+  .pattern-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 72px;
+    margin-left: 24px;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  // colors
   .rethink {
     background-color: $rethink;
   }
