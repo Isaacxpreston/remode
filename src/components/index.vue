@@ -103,6 +103,10 @@
       </div>
     </div>
     
+
+
+
+    
     <!-- stay tuned -->
     <div class="form-toggle form-title">
       <div class="h2">Stay Tuned for Updates</div>
@@ -121,11 +125,15 @@
       </div>
     </div>
 
-    <!-- form -->
-    <div class="nf-content-inject">
-
+    <!-- form injects -->
+    <div class="nf-content-speaking-container">
     </div>
 
+    <div class="nf-content-attending-container">
+    </div>
+
+    <div class="nf-content-sponsoring-container">
+    </div>
 
     <!-- footer -->
     <div class="footer row full-bleed">
@@ -173,9 +181,14 @@
     color: $white;
   }
 
-  .nf-content-inject {
+  .nf-content-speaking-container, .nf-content-attending-container, .nf-content-sponsoring-container {
     position: relative;
     width: 100%;
+  }
+
+
+  .nf-content-speaking-container, .nf-content-sponsoring-container {
+    display: none;
   }
 
   .debug {
@@ -500,12 +513,27 @@
     mounted() {
 
       // move form content
-      var getNfContent = setInterval(function () {
-        if (document.getElementById('nf-content-one')) {
-          document.querySelector('.nf-content-inject').appendChild(document.getElementById('nf-content-one'))
-          clearInterval(getNfContent)
+
+      var getNfContentSpeaking = setInterval(function () {
+        if (document.getElementById('nf-content-speaking')) {
+          document.querySelector('.nf-content-speaking-container').appendChild(document.getElementById('nf-content-speaking'))
+          clearInterval(getNfContentSpeaking)
         }
-      }, 500)
+      }, 1000)
+
+      var getNfContentAttending = setInterval(function () {
+        if (document.getElementById('nf-content-attending')) {
+          document.querySelector('.nf-content-attending-container').appendChild(document.getElementById('nf-content-attending'))
+          clearInterval(getNfContentAttending)
+        }
+      }, 1000)
+
+      var getNfContentSponsoring = setInterval(function () {
+        if (document.getElementById('nf-content-sponsoring')) {
+          document.querySelector('.nf-content-sponsoring-container').appendChild(document.getElementById('nf-content-sponsoring'))
+          clearInterval(getNfContentSponsoring)
+        }
+      }, 1000)
 
     }
   }
