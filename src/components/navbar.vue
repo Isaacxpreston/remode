@@ -4,7 +4,12 @@
       <logo />
     </div>
     <div class="p small">
-        Los Angeles<br />
+        <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)" stroke-dasharray="5" stroke-linecap="round">
+              <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
+          </g>
+        </svg>
+        <b>Los Angeles</b><br />
         Nov 13 & 14, 2018
     </div>
     <div class="button">
@@ -60,6 +65,13 @@
 
   .p.small {
     margin-left: calc(25% + 24px);
+    > svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: -4px;
+      margin-left: -12px;
+    }
     @media screen and (max-width: $mobile-max) {
       display: none;
     }

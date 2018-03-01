@@ -10,6 +10,15 @@
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content vert-center">
+            <div class="p small losAngeles">
+              <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)" stroke-dasharray="5" stroke-linecap="round">
+                    <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
+                </g>
+              </svg>
+              <b>Los Angeles</b><br />
+              Nov 13 & 14, 2018
+          </div>
           <h1>The game-changing event for innovative and sustainable fashion.</h1>
           <p class="large">Fashion is changing for the better. Be a part of the solution in a two-day event packed with innovative ideas,
             practical solutions and new connections.</p>
@@ -86,7 +95,7 @@
               will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
               environment.
             </p>
-            <button class="alternate">Sign Up</button>
+            <button class="alternate" v-on:click="scrollToForm">Sign Up</button>
           </div>
         </div>
       </div>
@@ -98,7 +107,7 @@
             <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services
               company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your
               leadership, generate leads and connect with the fashion community. </p>
-            <button>Sign Up</button>
+            <button v-on:click="scrollToForm">Sign Up</button>
           </div>
         </div>
       </div>
@@ -290,7 +299,7 @@
     }
     @media screen and (max-width: $mobile-max) {
       display: block;
-      margin-top: 60px;
+      margin-top: 22px; // 60px;
       .col-1 {
         display: none;
       }
@@ -470,8 +479,8 @@
       background: transparent;
       border: 1px solid $black;
       border-radius: 100px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 24px;
+      padding-right: 24px;
       cursor: pointer;
       @extend .utility ;
       transition: all 0.4s ease-in-out;
@@ -501,6 +510,11 @@
     &.form-title {
       height: auto;
       padding-bottom: 72px;
+    }
+    @media screen and (max-width: $mobile-max) {
+      &:not(.form-title) {
+        width: 100%;
+      }
     }
   }
 
@@ -557,6 +571,25 @@
     }
   }
 
+  // line
+  .losAngeles {
+    position: relative;
+    display: none;
+    @media screen and (max-width: $mobile-max) {
+      display: block;
+      margin-top: 36px;
+      margin-bottom: 36px;
+      padding-left: 12px;
+    }
+    >svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: -4px;
+      // margin-left: -12px;
+    }
+  }
+
 </style>
 
 <script>
@@ -575,6 +608,9 @@
   import linkedin from './icons/linkedin'
   import twitter from './icons/twitter'
   import youtube from './icons/youtube'
+
+  // js
+  import SmoothScroll from 'smooth-scroll'
 
   export default {
     data() {
@@ -598,10 +634,17 @@
         this.formToggleSponsoringClass = ''
         this[form] = ''
         this[button] = 'hovered'
+      },
+      scrollToForm () {
+        var scroll = new SmoothScroll();
+        scroll.animateScroll( 750 );
       }
     },
     mounted() {
 
+      console.log('here')
+      console.log(smoothScroll)
+      
       // move form content
 
       var getNfContentSpeaking = setInterval(function () {
