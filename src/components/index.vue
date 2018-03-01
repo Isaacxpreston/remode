@@ -20,7 +20,7 @@
     </div>
 
     <!-- copy row -->
-    <div class="row full-bleed with-margins">
+    <div class="row full-bleed with-margins second-row">
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content">
@@ -283,6 +283,7 @@
     }
   }
 
+  // header image row
   .first-row {
     @media screen and (max-width: $tablet-max) {
       margin-top: 108px;
@@ -307,6 +308,20 @@
         display: block !important;
         width: 100% !important;
         @include aspect-ratio(330, 380)
+      }
+    }
+  }
+
+  // experience remode row
+  .second-row {
+    @media screen and (max-width: $mobile-max) {
+      display: block;
+      .col-1, .col-6 {
+        display: none;
+      }
+      .col-5 {
+        width: calc(100% - 48px) !important;
+        margin-left: 24px;
       }
     }
   }
@@ -509,10 +524,27 @@
     position: relative;
     width: 100%;
     margin-top: 172px;
-    .col-7, .col-6, .col-5 {
+    .col-7, .col-6, .col-5, .col-4 {
       >.content {
         padding-top: 72px;
         padding-bottom: 72px;
+      }
+    }
+    @media screen and (max-width: $mobile-max) {
+      display: block;
+      .col-1 {
+        display: none;
+      }
+      .col-7, .col-6, .col-5, .col-4 {
+        width: 100% !important;
+        >.content {
+          position: relative;
+          width: calc(100% - 48px);
+          margin-left: 24px;
+          svg {
+            margin-right: 24px; // todo: make display flex justify space-between.
+          }
+        }
       }
     }
   }

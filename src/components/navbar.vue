@@ -72,13 +72,16 @@
     color: $white;
     background: $off-black;
     cursor: pointer;
-    width: 354px;
+    width: calc(100% * (3/12));
     height: 100%;
     text-align: center;
     >div {
       position :relative;
       top: 50%;
       transform: translateY(-50%);
+    }
+    @media screen and (max-width: $tablet-max) {
+      width: calc(100% * (5/12));
     }
     @media screen and (max-width: $mobile-max) {
       width: 50%;
