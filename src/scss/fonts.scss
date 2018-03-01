@@ -2,17 +2,17 @@
 @import './variables';
 @font-face {
   font-family: 'GTWalsheimMedium';
-  src: url('assets/fonts/GTWalsheim/GT-Walsheim-Medium.otf') format('opentype')
+  src: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/fonts/GTWalsheim/GT-Walsheim-Medium.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'GTWalsheimRegular';
-  src: url('assets/fonts/GTWalsheim/GT-Walsheim-Regular.otf') format('opentype')
+  src: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/fonts/GTWalsheim/GT-Walsheim-Regular.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'Chrono-Bold';
-  src: url('assets/fonts/Chrono/Chrono-Bold.otf') format('opentype')
+  src: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/fonts/Chrono/Chrono-Bold.otf') format('opentype')
 }
 
 h1,

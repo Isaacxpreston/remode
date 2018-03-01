@@ -38,12 +38,13 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../wp-content/themes/twentyseventeen/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsRoot: path.resolve(__dirname, '../wp-content/themes/twentyseventeen'),
+    assetsSubDirectory: 'assets',
+    assetsPublicPath: 'wp-content/themes/twentyseventeen/',
+
 
     /**
      * Source Maps

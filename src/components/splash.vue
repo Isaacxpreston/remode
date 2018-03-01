@@ -1,5 +1,5 @@
 <template>
-  <div class="splash">
+  <div class="splash" :class="splashClass" v-on:click="closeSplash">
 
     <div class="backgroundGradient"></div>
     <div class="backgroundGrain"></div>
@@ -79,6 +79,16 @@
 <script>
   // import grainImage from './grainImage'
   export default {
+    data () {
+      return {
+        splashClass: 'splash-hidden'
+      }
+    },
+    methods: {
+      closeSplash () {
+        this.splashClass = 'splash-hidden'
+      }
+    },
     components: {
       // grainImage
     }
@@ -95,12 +105,19 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/image/splash.png');
+    z-index: 999;
+    background-color: white;
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    // DEBUG
-    display: none;
+    cursor: pointer;
+    transition: all 0.8s ease-in-out;
+    &.splash-hidden {
+      opacity: 0;
+      // transform: translateY(-100%);
+      pointer-events: none !important;
+    }
   }
 
   .backgroundGradient,
@@ -116,11 +133,11 @@
   }
 
   .backgroudGradient {
-    background-image: url('../assets/SVG/backgroundGradient.svg');
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg');
   }
 
   .backgroundGrain {
-    background-image: url('../assets/SVG/backgroundGrain.svg');
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg');
   }
 
   .foreground {

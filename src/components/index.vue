@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="main-container">
     <splash />
     <navbar />
 
-
+    <!-- main image row -->
     <div class="row screen-height full-bleed">
       <div class="col-1"></div>
       <div class="col-5">
@@ -17,7 +17,8 @@
       <div class="col-5 background-image"></div>
     </div>
 
-    <div class="row full-bleed">
+    <!-- copy row -->
+    <div class="row full-bleed with-margins">
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content">
@@ -31,19 +32,50 @@
       <div class="col-6"></div>
     </div>
 
+    <!-- color tiles row -->
     <div class="row">
-      <div class="col-3 rethink">
+      <div class="col-3 image-tile rethink">
         <div class="content"></div>
       </div>
-      <div class="col-3 remake">
+      <div class="col-3 image-tile remake">
         <div class="content"></div>
       </div>
-      <div class="col-3 remarket">
+      <div class="col-3 image-tile remarket">
         <div class="content"></div>
       </div>
-      <div class="col-3 reinvest">
+      <div class="col-3 image-tile reinvest">
         <div class="content"></div>
       </div>
+    </div>
+
+    <!-- sideways text row -->
+    <div class="row screen-height-min with-margins">
+      <div class="col-6 debug">
+        <div class="content">
+          <div class="sponsor-image debug"></div>
+          <!-- <div class="vertical-text-container debug"> -->
+            <div class="vertical-text h2">Attendees</div>
+          <!-- </div> -->
+          <div class="sponsor-text">
+            <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
+              and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
+              will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
+              environment.</p>
+              <button>Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 debug">
+        <div class="content">
+          here
+        </div>
+      </div>
+    </div>
+
+
+    <!-- form -->
+    <div class="nf-content-inject">
+
     </div>
 
   </div>
@@ -52,7 +84,18 @@
 <style scoped lang="scss">
   @import '../scss/mixins';
   @import '../scss/colors';
-  @import '../scss/variables';
+  @import '../scss/variables'; // .main-container {
+  //   position: relative;
+  //   margin: auto;
+  //   width: 100%;
+  //   max-width: 1280px;
+  // }
+  .nf-content-inject {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 72px;
+  }
 
   .debug {
     background-color: rgba(255, 0, 0, 0.15);
@@ -67,13 +110,20 @@
     &.screen-height {
       height: 100vh; // background: rgba(255, 0, 0, 0.15);
     }
+    &.screen-height-min {
+      min-height: 100vh;
+    }
+    &.with-margins {
+      margin-top: 72px;
+      margin-bottom: 72px;
+    }
     &.full-bleed {
       width: 100%;
       margin-left: 0px;
       .col-1 {
         width: calc(100% * (1/12))
       }
-      .col-3 {
+      .col-3 image-tile {
         width: calc(100% * (3/12))
       }
       .col-5 {
@@ -85,11 +135,14 @@
     }
   }
 
-  .col-3 {
+  .image-tile {
+    @include aspect-ratio(330, 380);
+  }
+
+  .col-3 image-tile {
     position: relative;
     width: calc((100% * (3/12)) - 24px);
     background: rgba(255, 0, 0, 0.15); // move this
-    @include aspect-ratio(330, 380);
   }
 
   .col-1 {
@@ -108,7 +161,7 @@
   }
 
   .background-image {
-    background-image: url('../assets/image/Image.png');
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -117,10 +170,7 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-  }
-
-  // colors
-
+  } // colors
   .rethink {
     background-color: $rethink;
   }
@@ -135,7 +185,58 @@
 
   .remake {
     background-color: $remake;
+  } // sponsor section
+
+  .sponsor-image {
+    @include aspect-ratio(330,
+    380);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 24px);
+    margin-top: 8.5%; // 72px;
   }
+
+  .vertical-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    transform: rotate(-90deg);
+    transform-origin: bottom;
+    color: red;
+    background: rgba(255, 0, 0, 0.15);
+    margin-top: 45%;
+    margin-left: 25%;
+  }
+
+  .vertical-text-container {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 400px;
+    // height: 180px;
+    // margin-top: 25%;
+    // background: blue;
+  }
+
+  .sponsor-text {
+    // position: absolute;
+    background: rgba(255, 0, 0, 0.15); // top: 0;
+    // left: 50%;
+    width: 66%; // height: 48px;
+    // transform: translateX(-50%);
+    margin: auto;
+    margin-top: 70%;
+    p {
+      color: $white;
+    }
+
+    button {
+      margin-bottom: 68px;
+    }
+  }
+  
 
 </style>
 
@@ -150,7 +251,23 @@
     },
     components: {
       splash,
-      navbar
+      navbar,
+    },
+    mounted() {
+
+      var getNfContent = setInterval(function () {
+        if (document.getElementById('nf-content-one')) {
+          document.querySelector('.nf-content-inject').appendChild(document.getElementById('nf-content-one'))
+          clearInterval(getNfContent)
+        }
+      }, 500)
+
+      // if(document.getElementById('nf-content-one')) {
+      //   document.querySelector('.nf-content-inject').appendChild(document.getElementById('nf-content-one'))
+      // } else {
+      //   console.log('could not find nf content')
+      // }
+
     }
   }
 
