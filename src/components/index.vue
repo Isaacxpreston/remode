@@ -1,5 +1,6 @@
 <template>
   <div class="main-container">
+    
     <splash />
     <navbar />
 
@@ -46,16 +47,28 @@
       <div class="col-3 image-tile remake">
         <div class="content">
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remake.png" />
+          <div class="pattern-container">
+            <makePattern />
+          </div>
+          <div class="p large">Ideas and solutions for design, production, wearables, and sustainability.</div>
         </div>
       </div>
       <div class="col-3 image-tile remarket">
         <div class="content">
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remarket.png" />
+          <div class="pattern-container">
+            <marketPattern />
+          </div>
+          <div class="p large">Marketing and sales strategies for omnichannel success, including technological innovations and best practices in storytelling.</div>
         </div>
       </div>
       <div class="col-3 image-tile reinvest">
         <div class="content">
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/reinvest.png" />
+          <div class="pattern-container">
+            <investPattern />
+          </div>
+          <div class="p large">Innovative ways to finance and maintain a sustainable brand.</div>
         </div>
       </div>
     </div>
@@ -126,6 +139,13 @@
       <div class="col-5">
         <div class="content">
           <div class="h3">Follow Us</div>
+          <div class="social-media">
+            <facebook />
+            <linkedin />
+            <instagram />
+            <twitter />
+            <youtube />
+          </div>
         </div>
       </div>
     </div>
@@ -431,12 +451,32 @@
     }
   }
 
+  .social-media {
+    padding-top: 48px;
+    svg {
+      cursor: pointer;
+      margin-right: 36px;
+    }
+  }
+
 </style>
 
 <script>
   import splash from './splash'
   import navbar from './navbar'
+
+  // patterns
   import thinkPattern from './patterns/thinkPattern'
+  import makePattern from './patterns/makePattern'
+  import marketPattern from './patterns/marketPattern'
+  import investPattern from './patterns/investPattern'
+
+  // icons
+  import facebook from './icons/facebook'
+  import instagram from './icons/instagram'
+  import linkedin from './icons/linkedin'
+  import twitter from './icons/twitter'
+  import youtube from './icons/youtube'
 
   export default {
     data() {
@@ -447,7 +487,15 @@
     components: {
       splash,
       navbar,
-      thinkPattern
+      thinkPattern,
+      makePattern,
+      marketPattern,
+      investPattern,
+      facebook,
+      instagram,
+      linkedin,
+      twitter,
+      youtube
     },
     mounted() {
 
