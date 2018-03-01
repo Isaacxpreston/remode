@@ -50,26 +50,29 @@
 
     <!-- sideways text row -->
     <div class="row full-bleed screen-height-min with-margins">
-      <div class="col-6 debug">
+      <div class="col-6 off-black">
         <div class="content">
-          <div class="sponsor-image debug"></div>
-            <div class="vertical-text h2">Attendees</div>
-          <div class="sponsor-text">
+          <div class="attendees-image"></div>
+          <div class="vertical-text h2">Attendees</div>
+          <div class="attendees-text">
             <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
               and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
               will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
-              environment.</p>
-              <button>Sign Up</button>
+              environment.
+            </p>
+            <button class="alternate">Sign Up</button>
           </div>
         </div>
       </div>
-      <div class="col-6 debug">
+      <div class="col-6">
         <div class="content">
-          <div class="sponsor-image debug"></div>
-            <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
+          <div class="sponsor-image"></div>
+          <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
           <div class="sponsor-text">
-            <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your leadership, generate leads and connect with the fashion community. </p>
-              <button>Sign Up</button>
+            <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services
+              company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your
+              leadership, generate leads and connect with the fashion community. </p>
+            <button>Sign Up</button>
           </div>
         </div>
       </div>
@@ -99,12 +102,18 @@
 <style scoped lang="scss">
   @import '../scss/mixins';
   @import '../scss/colors';
+  @import '../scss/fonts';
   @import '../scss/variables'; // .main-container {
   //   position: relative;
   //   margin: auto;
   //   width: 100%;
   //   max-width: 1280px;
   // }
+
+  .off-black {
+    background-color: $off-black;
+  }
+
   .nf-content-inject {
     position: relative;
     width: 100%;
@@ -201,8 +210,7 @@
   .remake {
     background-color: $remake;
   } // sponsor section
-
-  .sponsor-image {
+  .sponsor-image, .attendees-image {
     @include aspect-ratio(330,
     380);
     position: absolute;
@@ -210,6 +218,17 @@
     right: 0;
     width: calc(50% - 24px);
     margin-top: 8.5%; // 72px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .sponsor-image {
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
+  }
+
+  .attendees-image {
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
   }
 
   .vertical-text {
@@ -219,23 +238,24 @@
     width: 0px;
     transform: rotate(-90deg);
     transform-origin: bottom;
-    color: red;
+    color: $white;
     background: rgba(255, 0, 0, 0.15);
     margin-top: 52.5%;
     margin-left: 25%;
     word-wrap: initial !important;
     &.vertical-text-second {
+      color: $black;
       margin-top: 45%;
       margin-left: 35%;
-      > span {
+      >span {
         color: transparent !important;
       }
     }
   }
 
-  .sponsor-text {
+  .sponsor-text, .attendees-text {
     // position: absolute;
-    background: rgba(255, 0, 0, 0.15); // top: 0;
+    // background: rgba(255, 0, 0, 0.15); // top: 0;
     // left: 50%;
     width: 66%; // height: 48px;
     // transform: translateX(-50%);
@@ -243,14 +263,45 @@
     margin-top: 70%;
     display: block !important;
     p {
-      color: $white;
+      color: $black;
     }
 
-    button {
-      margin-bottom: 68px;
+
+  } 
+
+  .attendees-text {
+    p {
+      color: $white;
     }
   }
 
+      button {
+      margin-bottom: 68px;
+      margin-top: 24px;
+      background: transparent;
+      border: 1px solid $black;
+      border-radius: 100px;
+      padding-left: 20px;
+      padding-right: 20px;
+      cursor: pointer;
+      @extend .utility ;
+      transition: all 0.4s ease-in-out;
+      &:hover {
+        background: $black;
+        border-color: $white;
+        color: $white;
+      }
+      &.alternate {
+        border-color: $white;
+        color: $white;
+        &:hover {
+          background: $white;
+          border-color: $black;
+          color: $black;
+        }
+      }
+    }
+  
   // form toggle buttons 
   .form-toggle {
     position: relative;
@@ -275,7 +326,6 @@
       border-bottom: 1px solid $black;
     }
   }
-  
 
 </style>
 
