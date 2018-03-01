@@ -1,9 +1,5 @@
 <template>
 <svg width="140px" height="12px" viewBox="0 0 140 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>think_pattern</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
     <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-48.000000, -1476.000000)">
         <g id="experience-remode" transform="translate(24.000000, 872.000000)" fill="#FFFFFF">
             <g id="rethink" transform="translate(0.000000, 260.000000)">

@@ -37,6 +37,9 @@
       <div class="col-3 image-tile rethink">
         <div class="content">
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" />
+          <div class="pattern-container">
+            <thinkPattern />
+          </div>
         </div>
       </div>  
       <div class="col-3 image-tile remake">
@@ -401,7 +404,9 @@
 
 <script>
   import splash from './splash'
-  import navbar from './navbar';
+  import navbar from './navbar'
+  import thinkPattern from './patterns/thinkPattern'
+
   export default {
     data() {
       return {
@@ -411,6 +416,7 @@
     components: {
       splash,
       navbar,
+      thinkPattern
     },
     mounted() {
 
