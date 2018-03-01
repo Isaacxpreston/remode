@@ -53,9 +53,7 @@
       <div class="col-6 debug">
         <div class="content">
           <div class="sponsor-image debug"></div>
-          <!-- <div class="vertical-text-container debug"> -->
             <div class="vertical-text h2">Attendees</div>
-          <!-- </div> -->
           <div class="sponsor-text">
             <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
               and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
@@ -67,7 +65,15 @@
       </div>
       <div class="col-6 debug">
         <div class="content">
-          here
+          <div class="sponsor-image debug"></div>
+            <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
+          <div class="sponsor-text">
+            <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
+              and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
+              will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
+              environment.</p>
+              <button>Sign Up</button>
+          </div>
         </div>
       </div>
     </div>
@@ -206,8 +212,15 @@
     transform-origin: bottom;
     color: red;
     background: rgba(255, 0, 0, 0.15);
-    margin-top: 45%;
+    margin-top: 50%;
     margin-left: 25%;
+    &.vertical-text-second {
+      margin-top: 45%;
+      margin-left: 35%;
+      > span {
+        color: transparent !important;
+      }
+    }
   }
 
   .vertical-text-container {
