@@ -23,7 +23,7 @@ h1,
   color: $black;
   letter-spacing: 0.5px;
   line-height: 36px;
-  @media screen and (min-width: $desktop-min) {
+  @media screen and (min-width: $tablet-min) {
     font-size: 44px;
     letter-spacing: 0.73px;
     line-height: 60px;
@@ -38,7 +38,7 @@ h2,
   color: $black;
   letter-spacing: 0.33px;
   line-height: 36px;
-  @media screen and (min-width: $desktop-min) {
+  @media screen and (min-width: $tablet-min) {
     font-size: 38px;
     letter-spacing: 0.53px;
     line-height: 48px;

@@ -34,7 +34,7 @@
     </div>
 
     <!-- color tiles row -->
-    <div class="row">
+    <div class="row overflow-hidden">
       <div class="col-3 image-tile rethink">
         <div class="content">
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" />
@@ -177,6 +177,10 @@
     color: $white;
   }
 
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
   .nf-content-speaking-container, .nf-content-attending-container, .nf-content-sponsoring-container {
     position: relative;
     width: 100%;
@@ -192,6 +196,7 @@
   .row {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: calc(100% - 24px);
     margin-left: 12px;
@@ -229,7 +234,14 @@
   .col-3 {
     position: relative;
     width: calc((100% * (3/12)) - 24px);
-    background: rgba(255, 0, 0, 0.15); // move this
+    @media screen and (max-width: $tablet-max) { // can get away with this for now because col-3 is only used for image row.
+      width: calc((100% * (6/12)) - 24px);
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+    @media screen and (max-width: $mobile-max) { // etc.
+      width: calc((100% * (12/12)) - 24px);
+    }
   }
 
   .col-1 {
@@ -369,11 +381,7 @@
   }
 
   .sponsor-text, .attendees-text {
-    // position: absolute;
-    // background: rgba(255, 0, 0, 0.15); // top: 0;
-    // left: 50%;
-    width: 66%; // height: 48px;
-    // transform: translateX(-50%);
+    width: 66%;
     margin: auto;
     margin-top: 70%;
     display: block !important;
@@ -492,7 +500,7 @@
         formAttendingClass: '',
         formSpeakingClass: 'form-hidden',
         formSponsoringClass: 'form-hidden',
-        formToggleAttendingClass: '',
+        formToggleAttendingClass: 'hovered',
         formToggleSpeakingClass: '',
         formToggleSponsoringClass: ''
       }

@@ -152,7 +152,7 @@
       }
     }
     &.mobile {
-      @media screen and (min-width: $desktop-min) {
+      @media screen and (min-width: $tablet-min) {
         display: none;
       }
     }
