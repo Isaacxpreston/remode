@@ -49,7 +49,7 @@
     </div>
 
     <!-- sideways text row -->
-    <div class="row screen-height-min with-margins">
+    <div class="row full-bleed screen-height-min with-margins">
       <div class="col-6 debug">
         <div class="content">
           <div class="sponsor-image debug"></div>
@@ -68,16 +68,25 @@
           <div class="sponsor-image debug"></div>
             <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
           <div class="sponsor-text">
-            <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
-              and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
-              will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
-              environment.</p>
+            <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your leadership, generate leads and connect with the fashion community. </p>
               <button>Sign Up</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- form buttons -->
+    <div class="form-toggle">
+      <div class="form-toggle-button">
+        <div class="h3 vert-center">Attending</div>
+      </div>
+      <div class="form-toggle-button">
+        <div class="h3 vert-center">Speaking</div>
+      </div>
+      <div class="form-toggle-button">
+        <div class="h3 vert-center">Exhibiting /Sponsoring</div>
+      </div>
+    </div>
 
     <!-- form -->
     <div class="nf-content-inject">
@@ -129,7 +138,7 @@
       .col-1 {
         width: calc(100% * (1/12))
       }
-      .col-3 image-tile {
+      .col-3 {
         width: calc(100% * (3/12))
       }
       .col-5 {
@@ -145,7 +154,7 @@
     @include aspect-ratio(330, 380);
   }
 
-  .col-3 image-tile {
+  .col-3 {
     position: relative;
     width: calc((100% * (3/12)) - 24px);
     background: rgba(255, 0, 0, 0.15); // move this
@@ -212,8 +221,9 @@
     transform-origin: bottom;
     color: red;
     background: rgba(255, 0, 0, 0.15);
-    margin-top: 50%;
+    margin-top: 52.5%;
     margin-left: 25%;
+    word-wrap: initial !important;
     &.vertical-text-second {
       margin-top: 45%;
       margin-left: 35%;
@@ -221,16 +231,6 @@
         color: transparent !important;
       }
     }
-  }
-
-  .vertical-text-container {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // width: 400px;
-    // height: 180px;
-    // margin-top: 25%;
-    // background: blue;
   }
 
   .sponsor-text {
@@ -241,12 +241,38 @@
     // transform: translateX(-50%);
     margin: auto;
     margin-top: 70%;
+    display: block !important;
     p {
       color: $white;
     }
 
     button {
       margin-bottom: 68px;
+    }
+  }
+
+  // form toggle buttons 
+  .form-toggle {
+    position: relative;
+    margin: auto;
+    display: flex;
+    width: calc(100% * (10/12));
+    height: 72px;
+    background: rgba(255, 0, 0, 0.15);
+  }
+
+  .form-toggle-button {
+    position: relative;
+    width: calc(100% / 3);
+    height: 100%;
+    background: rgba(255, 0, 0, 0.25);
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.4s ease-in-out;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    &:hover {
+      border-bottom: 1px solid $black;
     }
   }
   
