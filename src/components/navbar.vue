@@ -93,7 +93,7 @@
     color: $white;
     background: $off-black;
     cursor: pointer;
-    width: calc(100% * (3/12));
+    width: calc(100% * (3/12) - 6px);
     height: 100%;
     text-align: center;
     >div {

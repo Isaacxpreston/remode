@@ -118,6 +118,10 @@
       <div class="h2">Stay Tuned for Updates</div>
     </div>
 
+
+    <!-- form wrapper -->
+    <div class="form-wrapper">
+
     <!-- form buttons -->
     <div class="form-toggle">
       <div class="form-toggle-button" :class="formToggleAttendingClass" v-on:click="toggleForm('formAttendingClass', 'formToggleAttendingClass')">
@@ -140,6 +144,12 @@
 
     <div class="nf-content-sponsoring-container" :class="formSponsoringClass">
     </div>
+
+
+    </div>
+
+
+
 
     <!-- footer -->
     <div class="footer row full-bleed">
@@ -302,7 +312,7 @@
     }
     @media screen and (max-width: $mobile-max) {
       display: block;
-      margin-top: 22px; // 60px;
+      margin-top: 0px; // 60px;
       .col-1 {
         display: none;
       }
@@ -432,7 +442,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(50% - 24px);
+    width: calc(50% - 6px);
     margin-top: 8.5%; // 72px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -537,14 +547,25 @@
     position: relative;
     width: calc(100% / 3);
     height: 100%;
-    background: $white;
+    background: $off-white;
     cursor: pointer;
     box-sizing: border-box;
     transition: all 0.4s ease-in-out;
     border-bottom: 1px solid transparent;
     text-align: center;
     &:hover, &.hovered {
-      border-bottom: 1px solid $black;
+      border-bottom: 2px solid $black;
+    }
+  }
+
+  .form-wrapper {
+    position: relative;
+    margin: auto;
+    background: $off-white;
+    width: calc(100% * 10/12);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    >.form-toggle {
+      width: 100%;
     }
   }
 
@@ -612,6 +633,12 @@
     }
   }
 
+</style>
+
+<style lang="scss">
+  body {
+    margin: 0px !important;
+  }
 </style>
 
 <script>
