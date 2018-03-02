@@ -26,11 +26,33 @@
     display: flex;
     padding-top: 48px;
     >div {
-      // background: red;
-      .h2, .utility {
+      position: relative;
+      .h2,
+      .utility {
         color: $white;
       }
-      margin-right: 48px;
+      margin-right: 96px;
+      &:not(:last-child) {
+        &:after {
+          position: absolute;
+          content: ' ';
+          height: 6px;
+          width: 6px;
+          top: 50%;
+          right: 0;
+          transform: translate(48px, -50%);
+          background: $white;
+          border-radius: 50%;
+        }
+      }
+    }
+    @media screen and (max-width: $tablet-max) {
+      >div {
+        margin-right: 48px;
+        &:after {
+          transform: translate(24px, -50%) !important;
+        }
+      }
     }
     @media screen and (max-width: $mobile-max) {
       justify-content: space-between;
@@ -39,11 +61,11 @@
       }
     }
   }
+
 </style>
 
 
 <script>
-
   // https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
   // https://codepen.io/SitePoint/pen/MwNPVq
 
