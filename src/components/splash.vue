@@ -1,8 +1,11 @@
 <template>
-  <div class="splash" :style="splashStyles" :class="splashClass" v-on:click="closeSplash">
+  <div class="splash" :class="splashClass" v-on:click="closeSplash">
 
+    <div class="splashBackground" :style="splashStyles"></div>
     <div class="backgroundGradient" :style="backgroundGradientStyles"></div>
     <div class="backgroundGrain" :style="backgroundGrainStyles"></div>
+
+    <div class="backgroundLoader" :class="backgroundLoaderClass"></div>
 
     <!-- desktop -->
     <svg class="foreground desktop" width="1440px" height="800px" viewBox="0 0 1440 800" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +85,7 @@
     data () {
       return {
         splashClass: '',
+        backgroundLoaderClass: '',
         backgroundGradientStyles: '',
         backgroundGrainStyles: '',
         splashStyles: ''
@@ -90,10 +94,6 @@
     methods: {
       closeSplash () {
         this.splashClass = 'splash-hidden'
-        this.splashStyles = {
-          'background-image': 'none',
-          'background-color': 'transparent'
-        }
         window.scrollTo(0, 0)
       }
     },
@@ -102,10 +102,22 @@
     },
     mounted () {
         var context = this
+        var imageCounter = 0
+
+        var imageLoadedCallback = function () {
+          imageCounter ++
+          if (imageCounter > 2) {
+            context.backgroundLoaderClass = 'loaded'
+            setTimeout(function() {
+              context.closeSplash()
+            }, 4000)
+          }
+        }
 
         var splashImage = new Image()
         splashImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png'
         splashImage.onload = function () {
+          imageLoadedCallback()
           context.splashStyles = {
             'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png')"
           }
@@ -114,6 +126,7 @@
         var gradientImage = new Image()
         gradientImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg'
         gradientImage.onload = function () {
+          imageLoadedCallback()
           context.backgroundGradientStyles = {
             'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg')"
           }
@@ -122,6 +135,7 @@
         var grainImage = new Image()
         grainImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg'
         grainImage.onload = function () {
+          imageLoadedCallback()
           context.backgroundGrainStyles = {
             'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg')"
           }
@@ -157,7 +171,9 @@
   }
 
   .backgroundGradient,
-  .backgroundGrain {
+  .backgroundGrain,
+  .splashBackground,
+  .backgroundLoader {
     position: absolute;
     top: 0;
     left: 0;
@@ -166,6 +182,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+  }
+
+  .backgroundLoader {
+    background: $black;
+    transition: all 0.8s ease-in-out;
+    &.loaded {
+      opacity: 0;
+    }
   }
 
   // .backgroudGradient {
