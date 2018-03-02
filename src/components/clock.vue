@@ -24,13 +24,19 @@
   #clockdiv {
     position: relative;
     display: flex;
-    margin-top: 36px;
+    padding-top: 48px;
     >div {
       // background: red;
       .h2, .utility {
         color: $white;
       }
       margin-right: 48px;
+    }
+    @media screen and (max-width: $mobile-max) {
+      justify-content: space-between;
+      >div {
+        margin-right: 0px;
+      }
     }
   }
 </style>
