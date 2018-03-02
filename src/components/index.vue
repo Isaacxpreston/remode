@@ -387,7 +387,7 @@
         opacity: 1;
       }
     }
-    @media screen and (max-width: $mobile-max) {
+    @media screen and (max-width: $tablet-max) {
       .pattern-container {
         margin-top: 100%;
       }

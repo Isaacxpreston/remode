@@ -1,8 +1,8 @@
 <template>
-  <div class="splash" :class="splashClass" v-on:click="closeSplash">
+  <div class="splash" :style="splashStyles" :class="splashClass" v-on:click="closeSplash">
 
-    <div class="backgroundGradient"></div>
-    <div class="backgroundGrain"></div>
+    <div class="backgroundGradient" :style="backgroundGradientStyles"></div>
+    <div class="backgroundGrain" :style="backgroundGrainStyles"></div>
 
     <!-- desktop -->
     <svg class="foreground desktop" width="1440px" height="800px" viewBox="0 0 1440 800" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -81,16 +81,52 @@
   export default {
     data () {
       return {
-        splashClass: ''
+        splashClass: '',
+        backgroundGradientStyles: '',
+        backgroundGrainStyles: '',
+        splashStyles: ''
       }
     },
     methods: {
       closeSplash () {
         this.splashClass = 'splash-hidden'
+        this.splashStyles = {
+          'background-image': 'none',
+          'background-color': 'transparent'
+        }
+        window.scrollTo(0, 0)
       }
     },
     components: {
       // grainImage
+    },
+    mounted () {
+        var context = this
+
+        var splashImage = new Image()
+        splashImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png'
+        splashImage.onload = function () {
+          context.splashStyles = {
+            'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png')"
+          }
+        }
+
+        var gradientImage = new Image()
+        gradientImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg'
+        gradientImage.onload = function () {
+          context.backgroundGradientStyles = {
+            'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg')"
+          }
+        }
+
+        var grainImage = new Image()
+        grainImage.src = 'https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg'
+        grainImage.onload = function () {
+          context.backgroundGrainStyles = {
+            'background-image': "url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg')"
+          }
+        }
+
     }
   }
 
@@ -98,7 +134,8 @@
 
 <style scoped lang="scss">
   @import '../scss/variables';
-
+  @import '../scss/colors'
+;
   .splash {
     position: fixed;
     top: 0;
@@ -106,8 +143,7 @@
     width: 100%;
     height: 100vh;
     z-index: 999;
-    background-color: white;
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/splash.png');
+    background-color: $black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -132,13 +168,13 @@
     background-position: center center;
   }
 
-  .backgroudGradient {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg');
-  }
+  // .backgroudGradient {
+    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg');
+  // }
 
-  .backgroundGrain {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg');
-  }
+  // .backgroundGrain {
+    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg');
+  // }
 
   .foreground {
     position: absolute;
