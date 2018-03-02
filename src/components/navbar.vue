@@ -12,7 +12,7 @@
         <b>Los Angeles</b><br />
         Nov 13 & 14, 2018
     </div>
-    <div class="button">
+    <div class="button" v-on:click="scrollToForm">
       <div>
         Stay Updated
       </div>
@@ -21,10 +21,19 @@
 </template>
 
 <script>
+
+  import SmoothScroll from 'smooth-scroll'
   import logo from './logo'
+
   export default {
     components: {
       logo
+    },
+    methods: {
+      scrollToForm () {
+        var scroll = new SmoothScroll();
+        scroll.animateScroll(document.querySelector('.formScroll'));
+      }
     }
   }
 

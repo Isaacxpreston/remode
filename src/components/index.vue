@@ -114,7 +114,7 @@
     </div>
     
     <!-- stay tuned -->
-    <div class="form-toggle form-title">
+    <div class="form-toggle form-title formScroll">
       <div class="h2">Stay Tuned for Updates</div>
     </div>
 
@@ -378,12 +378,22 @@
     }
     &:hover {
       box-shadow: 0 2px 30px 0 rgba(0,0,0,0.30);
+    }
+    &:hover, &.hovered {
       .pattern-container {
         margin-top: 100%;
       }
       .p {
         opacity: 1;
       }
+    }
+    @media screen and (max-width: $mobile-max) {
+      .pattern-container {
+        margin-top: 100%;
+      }
+      .p {
+        opacity: 1 !important;
+      } 
     }
   }
 
@@ -586,7 +596,6 @@
       top: 0;
       left: 0;
       margin-top: -4px;
-      // margin-left: -12px;
     }
   }
 
@@ -637,13 +646,10 @@
       },
       scrollToForm () {
         var scroll = new SmoothScroll();
-        scroll.animateScroll( 750 );
+        scroll.animateScroll(document.querySelector('.formScroll'));
       }
     },
     mounted() {
-
-      console.log('here')
-      console.log(smoothScroll)
       
       // move form content
 
