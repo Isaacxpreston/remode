@@ -109,7 +109,9 @@
           if (imageCounter > 2) {
             context.backgroundLoaderClass = 'loaded'
             setTimeout(function() {
-              context.closeSplash()
+              if(context.splashClass !== 'splash-hidden') {
+                context.closeSplash()
+              }
             }, 4000)
           }
         }
@@ -192,20 +194,14 @@
     }
   }
 
-  // .backgroudGradient {
-    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGradient.svg');
-  // }
-
-  // .backgroundGrain {
-    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/SVG/backgroundGrain.svg');
-  // }
-
   .foreground {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    transition: all 0.8s ease-in-out;
+    animation: animateForeground 0.8s linear;
     &.desktop {
       @media screen and (max-width: $mobile-max) {
         display: none;
@@ -216,7 +212,15 @@
         display: none;
       }
     }
+  }
 
+  @keyframes animateForeground {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
 </style>

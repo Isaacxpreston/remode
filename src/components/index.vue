@@ -147,6 +147,7 @@
       <div class="col-6 off-black">
         <div class="content">
           <div class="h3 white">See You In</div>
+          <clock />
         </div>
       </div>
       <div class="col-1"></div>
@@ -171,7 +172,9 @@
   @import '../scss/mixins';
   @import '../scss/colors';
   @import '../scss/fonts';
-  @import '../scss/variables'; // .main-container {
+  @import '../scss/variables';
+  
+  // .main-container {
   //   position: relative;
   //   margin: auto;
   //   width: 100%;
@@ -316,7 +319,8 @@
       .background-image-mobile {
         display: block !important;
         width: 100% !important;
-        @include aspect-ratio(330, 380)
+        height: calc(100vh - 120px) !important;
+        // @include aspect-ratio(330, 380)
       }
     }
   }
@@ -488,6 +492,7 @@
       margin-top: 24px;
       background: transparent;
       border: 1px solid $black;
+      outline: 0 !important;
       border-radius: 100px;
       padding-left: 24px;
       padding-right: 24px;
@@ -578,6 +583,14 @@
     svg {
       cursor: pointer;
       margin-right: 36px;
+      margin-bottom: 12px;
+    }
+    @media screen and (max-width: $mobile-max) {
+      display: flex;
+      justify-content: space-between;
+      svg {
+        margin: 0px !important;
+      }
     }
   }
 
@@ -604,6 +617,7 @@
 <script>
   import splash from './splash'
   import navbar from './navbar'
+  import clock from './clock'
 
   // patterns
   import thinkPattern from './patterns/thinkPattern'
@@ -686,7 +700,8 @@
       instagram,
       linkedin,
       twitter,
-      youtube
+      youtube,
+      clock
     }
   }
 
