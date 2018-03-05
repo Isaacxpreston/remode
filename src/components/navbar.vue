@@ -4,13 +4,14 @@
       <logo />
     </div>
     <div class="p small">
-        <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)" stroke-dasharray="5" stroke-linecap="round">
-              <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
-          </g>
-        </svg>
-        <b>Los Angeles</b><br />
-        Nov 13 & 14, 2018
+      <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)"
+          stroke-dasharray="5" stroke-linecap="round">
+          <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
+        </g>
+      </svg>
+      <b>Los Angeles</b>
+      <br /> Nov 13 & 14, 2018
     </div>
     <div class="button" v-on:click="scrollToForm">
       <div>
@@ -21,7 +22,6 @@
 </template>
 
 <script>
-
   import SmoothScroll from 'smooth-scroll'
   import logo from './logo'
 
@@ -30,7 +30,7 @@
       logo
     },
     methods: {
-      scrollToForm () {
+      scrollToForm() {
         var scroll = new SmoothScroll();
         scroll.animateScroll(document.querySelector('.formScroll'));
       }
@@ -57,7 +57,8 @@
     }
   }
 
-  .logoContainer, .p.small {
+  .logoContainer,
+  .p.small {
     position: absolute;
     top: 50%;
     left: 0;
@@ -75,7 +76,7 @@
 
   .p.small {
     margin-left: calc(25% + 24px);
-    > svg {
+    >svg {
       position: absolute;
       top: 0;
       left: 0;
@@ -98,7 +99,7 @@
     height: 100%;
     text-align: center;
     >div {
-      position :relative;
+      position: relative;
       top: 50%;
       transform: translateY(-50%);
     }
@@ -108,5 +109,52 @@
     @media screen and (max-width: $mobile-max) {
       width: 50%;
     }
+
+
+    // rollover state
+
+    &::after {
+      content: 'stay updated';
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-transform: uppercase;
+      transform: translateY(-50%);
+      z-index: 2;
+      // transition: all 0.6s ease-in-out;
+      transition-delay: 0.6s;
+      opacity: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: ' ';
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: red;
+      z-index: 1;
+      transition: all 0.6s ease-in-out;
+      transform-origin: top left
+    }
+
+
+    &:hover {
+      &::before {
+        width: 100%
+      }
+      &::after {
+        opacity: 1;
+        transition-delay: 0s;
+      }
+    }
+
+    //
   }
+
+
+
 </style>

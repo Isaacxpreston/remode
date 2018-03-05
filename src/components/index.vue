@@ -95,9 +95,14 @@
       <div class="col-6 off-black full-tablet">
         <div class="content">
           <div class="attendees-image"></div>
-          <div class="vertical-text h2">Attendees</div>
+          <!-- <div class="vertical-text h2">Attendees</div> -->
+          <div class="vertical-text-wrapper">
+            <div class="content">
+              <div class="h2">Attendees</div>
+            </div>
+          </div>
           <div class="attendees-text">
-            <p class="small">If you are a fashion brand, for two days, you will hear the best ideas, meet the right people and find the resources to design and execute an actionable growth plan. You will connect to the network that will make you succeed in a fast-changing market.
+            <p class="small">If you are a fashion brand, you will hear the best ideas, meet the right people and find the resources to design and execute an actionable growth plan. You will connect to the network that will make you succeed in a fast-changing market.
             </p>
             <button class="alternate" v-on:click="scrollToForm">Sign Up</button>
           </div>
@@ -106,7 +111,12 @@
       <div class="col-6 full-tablet">
         <div class="content">
           <div class="sponsor-image"></div>
-          <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div>
+          <!-- <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> -->
+          <div class="vertical-text-wrapper">
+            <div class="content">
+              <div class="vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> 
+            </div>
+          </div>
           <div class="sponsor-text">
             <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services
               company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your
@@ -405,12 +415,13 @@
       }
       .p {
         position: absolute;
-        top: 50%;
+        // top: 50%;
+        top: 0;
         left: 0;
-        transform: translateY(-50%);
+        // transform: translateY(-50%);
         width: calc(100% - 48px);
         margin-left: 24px;
-        margin-top: 24px;
+        margin-top: 108px; // 24px;
         color: $white;
         opacity: 0;
         transition: all 0.6s ease-in-out;
@@ -516,6 +527,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    @media screen and (max-width: $mobile-max) {
+      width: 50%;
+    }
   }
 
   .sponsor-image {
@@ -526,31 +540,69 @@
     background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/attendees_looking_at_phone.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
   }
 
+  // old vertical text
+
   .vertical-text {
     position: absolute;
     top: 0;
-    // left: 0;
-    // width: 0px;
     left: 50%;
     width: 48px;
     height: 48px;
     transform: rotate(-90deg) translateX(-50%);
     text-align: center;
-    // transform-origin: bottom;
     color: $white;
-    // background: rgba(255, 0, 0, 0.15);
-    margin-top: 45%;
-    // margin-left: 25%;
+    margin-top: 46%;
     margin-left: -34%;
     word-wrap: initial !important;
     &.vertical-text-second {
       color: $black;
-      // margin-top: 45%;
-      // margin-left: 35%;
       >span {
         color: transparent !important;
       }
     }
+  }
+
+  // new vertical text
+  .vertical-text-wrapper {
+    @include aspect-ratio(330,
+    380);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% - 6px);
+    margin-top: 8.5%; // 72px;
+    > .content {
+      .h2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 40%;
+        margin-bottom: -4%;
+        width: 0px;
+        transform: rotate(-90deg); // translateX(-50%) translateY(-50%);
+        color: $white;
+        @media screen and (max-width: $mobile-max) {
+          margin-left: 36px !important;
+        }
+        &.vertical-text-second {
+          margin-left: 47.5%;
+          margin-bottom: -10%;
+          color: $black;
+          >span {
+            color: transparent !important;
+          }
+          @media screen and (max-width: $tablet-max) {
+            margin-left: 44% !important;
+          }
+          @media screen and (max-width: $mobile-max) {
+            margin-left: 54px !important;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $mobile-max) {
+      width: 50%;
+    } 
   }
 
   .sponsor-text, .attendees-text {
@@ -561,7 +613,9 @@
     p {
       color: $black;
     }
-
+    @media screen and (max-width: $mobile-max) {
+      width: calc(100% - 48px);
+    }
 
   } 
 
@@ -626,9 +680,10 @@
     background: $off-white;
     cursor: pointer;
     box-sizing: border-box;
-    transition: all 0.4s ease-in-out;
     border-bottom: 1px solid transparent;
     text-align: center;
+    border-bottom: 2px solid #8494A1;
+    transition: all 0.4s ease-in-out;
     &:hover, &.hovered {
       border-bottom: 2px solid $black;
     }
@@ -657,7 +712,7 @@
     height: calc(100% - 72px);
     margin-top: 72px;
     z-index: 99;
-    background: $white;
+    background: $off-white;
     opacity: 0;
     transition: all 0.6s ease-in-out;
     pointer-events: none;
@@ -684,23 +739,24 @@
       justify-content: center;
       text-align: center;
     }
-    @media screen and (max-width: $mobile-max) {
-      display: block;
-      .col-1 {
-        display: none;
-      }
-      .col-7, .col-6, .col-5, .col-4 {
-        width: 100% !important;
-        >.content {
-          position: relative;
-          width: calc(100% - 48px);
-          margin-left: 24px;
-          svg {
-            margin-right: 24px; // todo: make display flex justify space-between.
-          }
-        }
-      }
-    }
+    // UNCOMMENT THESE LINES when social media added back in
+    // @media screen and (max-width: $mobile-max) {
+    //   display: block;
+    //   .col-1 {
+    //     display: none;
+    //   }
+    //   .col-7, .col-6, .col-5, .col-4 {
+    //     width: 100% !important;
+    //     >.content {
+    //       position: relative;
+    //       width: calc(100% - 48px);
+    //       margin-left: 24px;
+    //       svg {
+    //         margin-right: 24px; // todo: make display flex justify space-between.
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .social-media-wrapper { 

@@ -60,12 +60,12 @@
         }
       }
     }
-    @media screen and (max-width: $mobile-max) {
-      justify-content: space-between;
-      >div {
-        margin-right: 0px;
-      }
-    }
+    // @media screen and (max-width: $mobile-max) {
+    //   justify-content: space-between;
+    //   >div {
+    //     margin-right: 0px;
+    //   }
+    // }
   }
 
 </style>
