@@ -626,6 +626,7 @@
   }
 
       button {
+      position: relative;
       margin-bottom: 68px;
       margin-top: 24px;
       background: transparent;
@@ -634,25 +635,81 @@
       // border-radius: 100px;
       border-radius: 0px;
       text-transform: uppercase;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+      font-weight: normal !important;
       cursor: pointer;
       @extend .utility ;
       transition: all 0.4s ease-in-out;
-      &:hover {
-        background: $black;
-        border-color: $white;
-        color: $white;
-      }
+      // &:hover {
+      //   // background: $black;
+      //   // border-color: $white;
+      //   // color: $white;
+      // }
       &.alternate {
         border-color: $white;
         color: $white;
-        &:hover {
-          background: $white;
-          border-color: $black;
-          color: $black;
+        // &:hover {
+        //   // background: $white;
+        //   // border-color: $black;
+        //   // color: $black;
+        // }
+      }
+
+      // rollover state (copypaste from navbar, refactor later)
+      &::after {
+        content: 'sign up';
+        color: $white;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-transform: uppercase;
+        transform: translateY(-50%);
+        z-index: 2;
+        transition: all 0.6s ease-in-out;
+        opacity: 0;
+      }
+
+
+      &::before {
+        position: absolute;
+        content: ' ';
+        top: 0;
+        right: 0;
+        width: 0%;
+        height: 100%;
+        background: $black;
+        z-index: 1;
+        transition: all 0.4s ease-in-out;
+        transform-origin: 100% 50% !important;
+      }
+
+
+      &:hover {
+        &::before {
+          right: initial;
+          left: 0;
+          width: 100%;
+        }
+        &::after {
+          opacity: 1;
+          transition-delay: 0s;
         }
       }
+
+      &.alternate {
+        &::after {
+          color: $black;
+        }
+        &::before {
+          background: $white;
+        }
+      }
+
     }
   
   // form toggle buttons 

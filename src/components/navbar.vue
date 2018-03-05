@@ -123,8 +123,7 @@
       text-transform: uppercase;
       transform: translateY(-50%);
       z-index: 2;
-      // transition: all 0.6s ease-in-out;
-      transition-delay: 0.6s;
+      transition-delay: 0.4s;
       opacity: 0;
     }
 
@@ -132,19 +131,21 @@
       position: absolute;
       content: ' ';
       top: 0;
-      left: 0;
+      right: 0;
       width: 0%;
       height: 100%;
-      background: red;
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
-      transition: all 0.6s ease-in-out;
-      transform-origin: top left
+      transition: all 0.4s ease-in-out;
+      transform-origin: 100% 50% !important;
     }
 
 
     &:hover {
       &::before {
-        width: 100%
+        right: initial;
+        left: 0;
+        width: 100%;
       }
       &::after {
         opacity: 1;
