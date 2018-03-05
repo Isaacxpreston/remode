@@ -526,19 +526,24 @@
   .vertical-text {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 0px;
-    transform: rotate(-90deg);
-    transform-origin: bottom;
+    // left: 0;
+    // width: 0px;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    transform: rotate(-90deg) translateX(-50%);
+    text-align: center;
+    // transform-origin: bottom;
     color: $white;
-    background: rgba(255, 0, 0, 0.15);
-    margin-top: 52.5%;
-    margin-left: 25%;
+    // background: rgba(255, 0, 0, 0.15);
+    margin-top: 45%;
+    // margin-left: 25%;
+    margin-left: -34%;
     word-wrap: initial !important;
     &.vertical-text-second {
       color: $black;
-      margin-top: 45%;
-      margin-left: 35%;
+      // margin-top: 45%;
+      // margin-left: 35%;
       >span {
         color: transparent !important;
       }
