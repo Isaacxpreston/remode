@@ -31,6 +31,9 @@
       .utility {
         color: $white;
       }
+      .utility {
+        text-align: center;
+      }
       margin-right: 96px;
       &:not(:last-child) {
         &:after {

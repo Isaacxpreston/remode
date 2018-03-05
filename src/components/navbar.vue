@@ -51,6 +51,7 @@
     width: 100%;
     height: 108px;
     background: $off-white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     @media screen and (max-width: $mobile-max) {
       height: 60px;
     }
