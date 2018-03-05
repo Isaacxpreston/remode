@@ -74,7 +74,7 @@
                 id="Combined-Shape" fill="#FFFFFF"></path>
               <text id="Los-Angeles" fill="#FFFFFF" font-family="Chrono-Bold, Chrono" font-size="20" font-weight="bold" line-spacing="24"
                 letter-spacing="2.00000024">
-                <tspan x="1425.74" y="431">Los Angeles</tspan>
+                <tspan x="1425.74" y="431">LOS ANGELES</tspan>
               </text>
               <text id="Nov-13-14,-2018" fill="#FFFFFF" font-family="Chrono-Bold, Chrono" font-size="20" font-weight="bold" line-spacing="24"
                 letter-spacing="2.00000024">

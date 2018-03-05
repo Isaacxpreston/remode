@@ -49,6 +49,9 @@
         <div class="content">
           <div class="image-underlay rethink-underlay"></div>
           <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" />
+          <!-- <div class="text-logo">
+              <rethinkText />
+          </div> -->
           <div class="pattern-container">
             <thinkPattern />
           </div>
@@ -375,7 +378,7 @@
   }
 
   .background-image, .background-image-mobile {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/women_standing_outside.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -393,7 +396,7 @@
     cursor: pointer;
     transition: all 0.4s ease-in-out;
     >.content {
-      img {
+      img, .text-logo {
         position: absolute;
         top: 0;
         left: 0;
@@ -516,11 +519,11 @@
   }
 
   .sponsor-image {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/exhibitor_working.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
   }
 
   .attendees-image {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
+    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/attendees_looking_at_phone.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
   }
 
   .vertical-text {
@@ -575,6 +578,7 @@
       border: 1px solid $black;
       outline: 0 !important;
       // border-radius: 100px;
+      border-radius: 0px;
       text-transform: uppercase;
       padding-left: 24px;
       padding-right: 24px;
@@ -760,6 +764,7 @@
   import makePattern from './patterns/makePattern'
   import marketPattern from './patterns/marketPattern'
   import investPattern from './patterns/investPattern'
+  import rethinkText from './text/rethink'
 
   // icons
   import facebook from './icons/facebook'
@@ -855,7 +860,8 @@
       linkedin,
       twitter,
       youtube,
-      clock
+      clock,
+      // rethinkText
     }
   }
 
