@@ -94,10 +94,7 @@
           <div class="attendees-image"></div>
           <div class="vertical-text h2">Attendees</div>
           <div class="attendees-text">
-            <p class="small">Attendees will have access to an informational and inspirational experience at REMODE. Fashion brands, suppliers,
-              and investors will come together to share innovative ideas, formulate practical solutions and forge new connections. Attendees
-              will leave with the ideas, resources, and contacts that will help them thrive in an omnichannel and sustainable
-              environment.
+            <p class="small">If you are a fashion brand, for two days, you will hear the best ideas, meet the right people and find the resources to design and execute an actionable growth plan. You will connect to the network that will make you succeed in a fast-changing market.
             </p>
             <button class="alternate" v-on:click="scrollToForm">Sign Up</button>
           </div>
@@ -150,6 +147,9 @@
     </div>
 
 
+    <!-- overlay -->
+    <div class="form-transition-overlay" :class="formTransitionClass"></div>
+
     </div>
 
 
@@ -157,16 +157,17 @@
 
     <!-- footer -->
     <div class="footer row full-bleed">
-      <div class="col-1 off-black"></div>
+      <!-- <div class="col-1 off-black"></div> -->
       <div class="col-6 off-black">
         <div class="content">
           <div class="h3 white">See You In</div>
           <clock />
         </div>
       </div>
-      <div class="col-1"></div>
-      <div class="col-4">
-        <div class="content">
+      <!-- remove off black class if adding social media -->
+      <!-- <div class="col-1 off-black"></div>
+      <div class="col-4 off-black">
+        <div class="content social-media-wrapper">
           <div class="h3">Follow Us</div>
           <div class="social-media">
             <facebook />
@@ -176,7 +177,7 @@
             <youtube />
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </div>
@@ -211,6 +212,7 @@
   .nf-content-speaking-container, .nf-content-attending-container, .nf-content-sponsoring-container {
     position: relative;
     width: 100%;
+    // height: 500px; background: rgba(0, 0, 255, 0.15); // for testing
     &.form-hidden {
       display: none;
     }
@@ -318,11 +320,14 @@
   // header image row
   .first-row {
     @media screen and (max-width: $tablet-max) {
-      margin-top: 108px;
+      margin-top: 76px; // not sure why in production this is needed.
+    }
+    @media screen and (max-width: 790px) {
+      margin-top: 62px; // cont.
     }
     @media screen and (max-width: $mobile-max) {
       display: block;
-      margin-top: 0px; // 60px;
+      margin-top: 0px;
       .col-1 {
         display: none;
       }
@@ -630,6 +635,26 @@
       width: 100% !important;
       background: $off-white;
     }
+    @media screen and (max-width: $mobile-max) {
+      width: 100%;
+    }
+  }
+
+  .form-transition-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 72px);
+    margin-top: 72px;
+    z-index: 99;
+    background: $white;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    pointer-events: none;
+    &.transition-active {
+      opacity : 1;
+    }
   }
 
   // footer
@@ -642,6 +667,13 @@
         padding-top: 72px;
         padding-bottom: 72px;
       }
+    }
+    // REMOVE THIS RULE when social media added back in
+    .col-6 {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      text-align: center;
     }
     @media screen and (max-width: $mobile-max) {
       display: block;
@@ -659,6 +691,15 @@
           }
         }
       }
+    }
+  }
+
+  .social-media-wrapper { 
+    // hide social media for now
+    opacity: 0;
+    pointer-events: none;
+    @media screen and(max-width: $tablet-max) {
+      display: none;
     }
   }
 
@@ -734,19 +775,37 @@
         formSponsoringClass: 'form-hidden',
         formToggleAttendingClass: 'hovered',
         formToggleSpeakingClass: '',
-        formToggleSponsoringClass: ''
+        formToggleSponsoringClass: '',
+        formTransitionClass: '',
+        timeouts: []
       }
     },
     methods: {
+      playFormTransition () {
+        var context = this
+        this.formTransitionClass = 'transition-active'
+        this.timeouts.push(setTimeout(function() {
+          context.formTransitionClass = ''
+        }, 600))
+      },
       toggleForm (form, button) {
-        this.formSpeakingClass = 'form-hidden'
-        this.formAttendingClass = 'form-hidden'
-        this.formSponsoringClass = 'form-hidden'
+        for (var i = 0; i < this.timeouts.length; i ++) {
+          clearTimeout(this.timeouts[i])
+        }
+        var context = this
+        this.playFormTransition()
         this.formToggleAttendingClass = ''
         this.formToggleSpeakingClass = '',
         this.formToggleSponsoringClass = ''
-        this[form] = ''
         this[button] = 'hovered'
+        this.timeouts.push(
+        setTimeout(function() {
+          context.formSpeakingClass = 'form-hidden'
+          context.formAttendingClass = 'form-hidden'
+          context.formSponsoringClass = 'form-hidden'
+          context[form] = ''
+        }, 600)
+        )
       },
       scrollToForm () {
         var scroll = new SmoothScroll();

@@ -12,7 +12,7 @@
       <div class="minutes h2"></div>
       <div class="utility">Minutes</div>
     </div>
-    <div>
+    <div class="remove-this-if-social-media">
       <div class="seconds h2"></div>
       <div class="utility">Seconds</div>
     </div>
@@ -47,6 +47,9 @@
           background: $white;
           border-radius: 50%;
         }
+      }
+      &.remove-this-if-social-media {
+        margin-right: 0px !important;
       }
     }
     @media screen and (max-width: $tablet-max) {
