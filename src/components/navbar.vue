@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="logoContainer">
+    <div class="logoContainer" v-on:click="scrollToTop">
       <logo />
     </div>
     <div class="p small">
@@ -33,6 +33,10 @@
       scrollToForm() {
         var scroll = new SmoothScroll();
         scroll.animateScroll(document.querySelector('.formScroll'));
+      },
+      scrollToTop() {
+        var scroll = new SmoothScroll();
+        scroll.animateScroll(0);
       }
     }
   }
@@ -66,6 +70,7 @@
   }
 
   .logoContainer {
+    cursor: pointer;
     margin-left: 24px;
     @media screen and (max-width: $mobile-max) {
       margin-left: 0px;

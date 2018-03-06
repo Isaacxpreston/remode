@@ -48,10 +48,10 @@
       <div class="col-3 image-tile rethink">
         <div class="content">
           <div class="image-underlay rethink-underlay"></div>
-          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" />
-          <!-- <div class="text-logo">
+          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" /> -->
+          <div class="text-logo text-rethink">
               <rethinkText />
-          </div> -->
+          </div>
           <div class="pattern-container">
             <thinkPattern />
           </div>
@@ -61,7 +61,10 @@
       <div class="col-3 image-tile remake">
         <div class="content">
           <div class="image-underlay remake-underlay"></div>
-          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remake.png" />
+          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remake.png" /> -->
+          <div class="text-logo text-remake">
+              <remakeText />
+          </div>
           <div class="pattern-container">
             <makePattern />
           </div>
@@ -71,7 +74,10 @@
       <div class="col-3 image-tile remarket">
         <div class="content">
           <div class="image-underlay remarket-underlay"></div>
-          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remarket.png" />
+          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remarket.png" /> -->
+          <div class="text-logo text-remarket">
+              <remarketText />
+          </div>
           <div class="pattern-container">
             <marketPattern />
           </div>
@@ -81,7 +87,10 @@
       <div class="col-3 image-tile reinvest">
         <div class="content">
           <div class="image-underlay reinvest-underlay"></div>
-          <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/reinvest.png" />
+          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/reinvest.png" /> -->
+          <div class="text-logo text-reinvest">
+              <reinvestText />
+          </div>
           <div class="pattern-container">
             <investPattern />
           </div>
@@ -104,7 +113,7 @@
           <div class="attendees-text">
             <p class="small">If you are a fashion brand, you will hear the best ideas, meet the right people and find the resources to design and execute an actionable growth plan. You will connect to the network that will make you succeed in a fast-changing market.
             </p>
-            <button class="alternate" v-on:click="scrollToForm">Sign Up</button>
+            <button class="alternate" v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
           </div>
         </div>
       </div>
@@ -121,7 +130,7 @@
             <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services
               company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your
               leadership, generate leads and connect with the fashion community. </p>
-            <button v-on:click="scrollToForm">Sign Up</button>
+            <button v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
           </div>
         </div>
       </div>
@@ -413,6 +422,36 @@
         margin-top: 24px;
         margin-left: 24px;
       }
+      .text-logo {
+        width: calc(100% - 48px);
+        height: 20px;
+        >svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;          
+        }
+        &.text-rethink {
+          >svg {
+            margin-left: -66px;
+          }
+        }
+        &.text-remarket {
+          >svg {
+            margin-left: -81px;
+          }
+        }
+        &.text-remake {
+          >svg {
+            margin-left: -62px;
+          }
+        }
+        &.text-reinvest {
+          >svg {
+            margin-left: -77px;
+          }
+        }
+      }
       .p {
         position: absolute;
         // top: 50%;
@@ -551,8 +590,8 @@
     transform: rotate(-90deg) translateX(-50%);
     text-align: center;
     color: $white;
-    margin-top: 46%;
-    margin-left: -34%;
+    margin-top: 46% !important;
+    margin-left: -34% !important;
     word-wrap: initial !important;
     &.vertical-text-second {
       color: $black;
@@ -566,28 +605,29 @@
   .vertical-text-wrapper {
     @include aspect-ratio(330,
     380);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(50% - 6px);
-    margin-top: 8.5%; // 72px;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: calc(50% - 6px) !important;
+    margin-top: 8.5% !important; // 72px;
     > .content {
       .h2 {
+        word-wrap: initial !important;
         position: absolute;
-        bottom: 0;
-        left: 0;
-        margin-left: 40%;
-        margin-bottom: -4%;
-        width: 0px;
-        transform: rotate(-90deg); // translateX(-50%) translateY(-50%);
-        color: $white;
+        bottom: 0 !important;
+        left: 0 !important;
+        margin-left: 40% !important;
+        margin-bottom: -4% !important;
+        width: 0px !important;
+        transform: rotate(-90deg) !important; // translateX(-50%) translateY(-50%);
+        color: $white !important;
         @media screen and (max-width: $mobile-max) {
           margin-left: 36px !important;
         }
         &.vertical-text-second {
-          margin-left: 47.5%;
-          margin-bottom: -10%;
-          color: $black;
+          margin-left: 47.5% !important;
+          margin-bottom: -10% !important;
+          color: $black !important;
           >span {
             color: transparent !important;
           }
@@ -601,7 +641,7 @@
       }
     }
     @media screen and (max-width: $mobile-max) {
-      width: 50%;
+      width: 50% !important;
     } 
   }
 
@@ -877,7 +917,11 @@
   import makePattern from './patterns/makePattern'
   import marketPattern from './patterns/marketPattern'
   import investPattern from './patterns/investPattern'
+
   import rethinkText from './text/rethink'
+  import remakeText from './text/remake'
+  import reinvestText from './text/reinvest'
+  import remarketText from './text/remarket'
 
   // icons
   import facebook from './icons/facebook'
@@ -930,7 +974,10 @@
         }, 600)
         )
       },
-      scrollToForm () {
+      scrollToForm (form, button) {
+        if(form || button) {
+          this.toggleForm(form, button)
+        }
         var scroll = new SmoothScroll();
         scroll.animateScroll(document.querySelector('.formScroll'));
       }
@@ -974,7 +1021,10 @@
       twitter,
       youtube,
       clock,
-      // rethinkText
+      rethinkText,
+      remarketText,
+      remakeText,
+      reinvestText
     }
   }
 
