@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="col-1"></div>
-      <div class="col-5 background-image"></div>
+      <div class="col-5 background-image" :style="sectionOneBackground"></div>
     </div>
 
     <!-- copy row -->
@@ -96,7 +96,7 @@
     <div class="row full-bleed screen-height-min with-margins">
       <div class="col-6 off-black full-tablet">
         <div class="content">
-          <div class="attendees-image"></div>
+          <div class="attendees-image" :style="attendingBackground"></div>
           <!-- <div class="vertical-text h2">Attendees</div> -->
           <div class="vertical-text-wrapper">
             <div class="content">
@@ -112,7 +112,7 @@
       </div>
       <div class="col-6 full-tablet">
         <div class="content">
-          <div class="sponsor-image"></div>
+          <div class="sponsor-image" :style="sponsorsBackground"></div>
           <!-- <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> -->
           <div class="vertical-text-wrapper">
             <div class="content">
@@ -388,7 +388,7 @@
   }
 
   .background-image, .background-image-mobile {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/women_standing_outside.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
+    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/women_standing_outside.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/Image.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -563,11 +563,11 @@
   }
 
   .sponsor-image {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/exhibitor_working.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
+    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/exhibitor_working.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
   }
 
   .attendees-image {
-    background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/attendees_looking_at_phone.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
+    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/attendees_looking_at_phone.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
   }
 
   // old vertical text
@@ -941,6 +941,20 @@
         content: {}
       }
     },
+    computed: {
+      sectionOneBackground() {
+        if (!this.content.section_one_image) return ''
+        return "background-image: url('" + this.content.section_one_image.url + "')"
+      },
+      attendingBackground () {
+        if (!this.content.attendees_block_image) return ''
+        return "background-image: url('" + this.content.attendees_block_image.url + "')"
+      },
+      sponsorsBackground () {
+        if (!this.content.exhibitors_and_sponsors_block_image) return ''
+        return "background-image: url('" + this.content.exhibitors_and_sponsors_block_image.url + "')"
+      }
+    },
     methods: {
       playFormTransition () {
         var context = this
@@ -983,7 +997,7 @@
       axios.get('https://remode.wpengine.com/wp-json/acf/v3/pages/35')
       .then(function(response) {
         context.content = response.data.acf
-        console.log(context.content)
+        // console.log(context.content)
       })
       
       // move form content
