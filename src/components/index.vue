@@ -19,9 +19,8 @@
               <b>Los Angeles</b><br />
               Nov 13 & 14, 2018
           </div>
-          <h1>The game-changing event for innovative and sustainable fashion.</h1>
-          <p class="large">Fashion is changing for the better. Be a part of the solution in a two-day event packed with innovative ideas,
-            practical solutions and new connections.</p>
+          <h1>{{content.section_one_header}}</h1>
+          <p class="large">{{content.section_one_body_text}}</p>
         </div>
       </div>
       <div class="col-1"></div>
@@ -33,11 +32,8 @@
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content">
-          <h2>Experience ReMode</h2>
-          <p class="small extra-line-height">Content and experiences at REMODE are built on four pillars. Within each pillar, participants will explore the
-            present issues in the industry and shape the future of fashion with two days of conferences, workshops, exhibits
-            and networking events. This 360 approach allows brands to break the silos, connect the dots and truly make a
-            difference within their organizations.</p>
+          <h2>{{content.section_two_header}}</h2>
+          <p class="small extra-line-height">{{content.section_two_body_text}}</p>
         </div>
       </div>
       <div class="col-6"></div>
@@ -48,40 +44,37 @@
       <div class="col-3 image-tile rethink">
         <div class="content">
           <div class="image-underlay rethink-underlay"></div>
-          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/rethink.png" /> -->
           <div class="text-logo text-rethink">
               <rethinkText />
           </div>
           <div class="pattern-container">
             <thinkPattern />
           </div>
-          <div class="p large shift-p">Consumer trends for the future and innovations in product and materials.</div>
+          <div class="p large shift-p">{{content.rethink_tile_text}}</div>
         </div>
       </div>  
       <div class="col-3 image-tile remake">
         <div class="content">
           <div class="image-underlay remake-underlay"></div>
-          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remake.png" /> -->
           <div class="text-logo text-remake">
               <remakeText />
           </div>
           <div class="pattern-container">
             <makePattern />
           </div>
-          <div class="p large shift-p">Ideas and solutions for design, production, wearables, and sustainability.</div>
+          <div class="p large shift-p">{{content.remake_tile_text}}</div>
         </div>
       </div>
       <div class="col-3 image-tile remarket">
         <div class="content">
           <div class="image-underlay remarket-underlay"></div>
-          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/remarket.png" /> -->
           <div class="text-logo text-remarket">
               <remarketText />
           </div>
           <div class="pattern-container">
             <marketPattern />
           </div>
-          <div class="p large shift-p">Marketing and sales strategies for omnichannel success, including technological innovations and best practices in storytelling.</div>
+          <div class="p large shift-p">{{content.remarket_tile_text}}</div>
         </div>
       </div>
       <div class="col-3 image-tile reinvest">
@@ -94,7 +87,7 @@
           <div class="pattern-container">
             <investPattern />
           </div>
-          <div class="p large shift-p">Innovative ways to finance and maintain a sustainable brand.</div>
+          <div class="p large shift-p">{{content.reinvest_tile_text}}</div>
         </div>
       </div>
     </div>
@@ -111,7 +104,7 @@
             </div>
           </div>
           <div class="attendees-text">
-            <p class="small">If you are a fashion brand, you will hear the best ideas, meet the right people and find the resources to design and execute an actionable growth plan. You will connect to the network that will make you succeed in a fast-changing market.
+            <p class="small">{{content.attendees_block_body_text}}
             </p>
             <button class="alternate" v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
           </div>
@@ -127,9 +120,7 @@
             </div>
           </div>
           <div class="sponsor-text">
-            <p class="small">If you are a fashion tech company, an innovative or sustainable raw material supplier, a tech, retail or services
-              company focused on fashion, Remode is a unique opportunity to show who you are, share your story, build your
-              leadership, generate leads and connect with the fashion community. </p>
+            <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
             <button v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
           </div>
         </div>
@@ -932,6 +923,8 @@
 
   // js
   import SmoothScroll from 'smooth-scroll'
+  import "babel-polyfill";
+  import axios from 'axios'
 
   export default {
     data() {
@@ -944,7 +937,8 @@
         formToggleSpeakingClass: '',
         formToggleSponsoringClass: '',
         formTransitionClass: '',
-        timeouts: []
+        timeouts: [],
+        content: {}
       }
     },
     methods: {
@@ -983,6 +977,14 @@
       }
     },
     mounted() {
+      
+      var context = this
+
+      axios.get('https://remode.wpengine.com/wp-json/acf/v3/pages/35')
+      .then(function(response) {
+        context.content = response.data.acf
+        console.log(context.content)
+      })
       
       // move form content
 
