@@ -1,13 +1,13 @@
 <template>
   <svg width="257px" height="39px" viewBox="0 0 257 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-      <polygon id="path-1" points="0 0.4086 31.1789 0.4086 31.1789 39.0356 0 39.0356"></polygon>
+      <polygon id="path-1-remake" points="0 0.4086 31.1789 0.4086 31.1789 39.0356 0 39.0356"></polygon>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="remake" transform="translate(0.000000, -1.000000)">
         <g id="Group-3" transform="translate(0.000000, 0.591800)">
           <mask id="mask-2" fill="white">
-            <use xlink:href="#path-1"></use>
+            <use xlink:href="#path-1-remake"></use>
           </mask>
           <g id="Clip-2"></g>
           <path d="M31.1789,39.0356 L22.7249,26.5656 C27.1299,25.9276 30.5289,22.1366 30.5289,17.5576 L30.5289,9.5196 C30.5289,4.4956 26.4419,0.4086 21.4159,0.4086 L-0.0001,0.4086 L-0.0001,7.9866 L21.0249,7.9866 C22.0709,7.9866 22.9499,8.8666 22.9499,9.9106 L22.9499,17.1666 C22.9499,18.2106 22.0709,19.0916 21.0249,19.0916 L-0.0001,19.0916 L-0.0001,26.6706 L13.6369,26.6706 L22.0229,39.0356 L31.1789,39.0356 Z"

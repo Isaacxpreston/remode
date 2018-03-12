@@ -1,13 +1,13 @@
 <template>
   <svg width="300px" height="41px" viewBox="0 0 300 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-      <polygon id="path-1" points="0 0.9556 31.1794 0.9556 31.1794 39.5826 0 39.5826"></polygon>
+      <polygon id="path-1-reinvest" points="0 0.9556 31.1794 0.9556 31.1794 39.5826 0 39.5826"></polygon>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="reinvest" transform="translate(0.000000, -1.000000)">
         <g id="Group-3" transform="translate(0.000000, 0.885500)">
           <mask id="mask-2" fill="white">
-            <use xlink:href="#path-1"></use>
+            <use xlink:href="#path-1-reinvest"></use>
           </mask>
           <g id="Clip-2"></g>
           <path d="M31.1794,39.5826 L22.7244,27.1136 C27.1294,26.4746 30.5294,22.6836 30.5294,18.1056 L30.5294,10.0666 C30.5294,5.0426 26.4414,0.9556 21.4154,0.9556 L-0.0006,0.9556 L-0.0006,8.5336 L21.0254,8.5336 C22.0704,8.5336 22.9504,9.4146 22.9504,10.4576 L22.9504,17.7146 C22.9504,18.7586 22.0704,19.6386 21.0254,19.6386 L-0.0006,19.6386 L-0.0006,27.2186 L13.6374,27.2186 L22.0234,39.5826 L31.1794,39.5826 Z"

@@ -1,14 +1,13 @@
 <template>
-<!-- <?xml version="1.0" encoding="UTF-8"?> -->
 <svg width="272px" height="39px" viewBox="0 0 272 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <polygon id="path-1a" points="0 0.6895 31.1794 0.6895 31.1794 39.3165 0 39.3165"></polygon>
+        <polygon id="path-1a-rethink" points="0 0.6895 31.1794 0.6895 31.1794 39.3165 0 39.3165"></polygon>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="rethink" transform="translate(0.000000, -1.000000)">
             <g id="Group-3" transform="translate(0.000000, 0.310900)">
                 <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1a"></use>
+                    <use xlink:href="#path-1a-rethink"></use>
                 </mask>
                 <g id="Clip-2"></g>
                 <path d="M31.1794,39.3165 L22.7244,26.8465 C27.1294,26.2085 30.5294,22.4175 30.5294,17.8385 L30.5294,9.8005 C30.5294,4.7765 26.4414,0.6895 21.4154,0.6895 L-0.0006,0.6895 L-0.0006,8.2675 L21.0254,8.2675 C22.0704,8.2675 22.9504,9.1475 22.9504,10.1915 L22.9504,17.4475 C22.9504,18.4915 22.0704,19.3725 21.0254,19.3725 L-0.0006,19.3725 L-0.0006,26.9515 L13.6374,26.9515 L22.0234,39.3165 L31.1794,39.3165 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>

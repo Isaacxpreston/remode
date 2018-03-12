@@ -1,8 +1,8 @@
 <template>
   <svg width="337px" height="39px" viewBox="0 0 337 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-      <polygon id="path-1" points="0.6604 0.7823 30.449 0.7823 30.449 39.3453 0.6604 39.3453"></polygon>
-      <polygon id="path-3" points="0 0.7345 31.1789 0.7345 31.1789 39.3615 0 39.3615"></polygon>
+      <polygon id="path-1-remarket" points="0.6604 0.7823 30.449 0.7823 30.449 39.3453 0.6604 39.3453"></polygon>
+      <polygon id="path-3-remarket" points="0 0.7345 31.1789 0.7345 31.1789 39.3615 0 39.3615"></polygon>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="remarket" transform="translate(0.000000, -1.000000)">
@@ -11,7 +11,7 @@
         <polygon id="Fill-3" fill="#FFFFFF" points="221.1653 1.0481 230.8063 1.0481 230.8063 16.4301 244.6173 1.0481 257.3993 1.0481 243.3713 15.6721 257.8333 39.6111 247.1083 39.6111 236.6023 22.4961 230.8063 28.4001 230.8063 39.6111 221.1653 39.6111"></polygon>
         <g id="Group-7" transform="translate(306.000000, 0.265800)">
           <mask id="mask-2" fill="white">
-            <use xlink:href="#path-1"></use>
+            <use xlink:href="#path-1-remarket"></use>
           </mask>
           <g id="Clip-6"></g>
           <polygon id="Fill-5" fill="#FFFFFF" mask="url(#mask-2)" points="0.6604 0.7823 30.4494 0.7823 30.4494 8.2563 20.3754 8.2563 20.3754 39.3453 10.7344 39.3453 10.7344 8.2563 0.6604 8.2563"></polygon>
@@ -22,7 +22,7 @@
         <polygon id="Fill-12" fill="#FFFFFF" points="113.8977 1.1072 103.7957 16.5822 94.2257 1.1072 92.8517 1.1072 84.3287 1.1072 84.3287 39.6112 92.8517 39.6112 92.8517 14.7292 103.1217 31.1422 103.2147 31.2912 115.0797 15.3332 115.0797 39.6112 123.6847 39.6112 123.6847 1.1072"></polygon>
         <g id="Group-61" transform="translate(0.000000, 0.265800)">
           <mask id="mask-4" fill="white">
-            <use xlink:href="#path-3"></use>
+            <use xlink:href="#path-3-remarket"></use>
           </mask>
           <g id="Clip-60"></g>
           <path d="M31.1789,39.3615 L22.7249,26.8925 C27.1299,26.2535 30.5289,22.4625 30.5289,17.8835 L30.5289,9.8455 C30.5289,4.8215 26.4419,0.7345 21.4159,0.7345 L-0.0001,0.7345 L-0.0001,8.3125 L21.0249,8.3125 C22.0709,8.3125 22.9499,9.1935 22.9499,10.2365 L22.9499,17.4925 C22.9499,18.5365 22.0709,19.4175 21.0249,19.4175 L-0.0001,19.4175 L-0.0001,26.9965 L13.6369,26.9965 L22.0229,39.3615 L31.1789,39.3615 Z"

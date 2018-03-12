@@ -6,7 +6,7 @@
 
     <!-- main image row -->
     <div class="row screen-height-min full-bleed first-row">
-      <div class="col-5 background-image-mobile"></div>
+      <div class="col-5 background-image-mobile" :style="sectionOneBackground"></div>
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content vert-center">
@@ -163,6 +163,21 @@
     <!-- overlay -->
     <div class="form-transition-overlay" :class="formTransitionClass"></div>
 
+    </div>
+
+
+
+    <!-- sponsors -->
+    <div class="row full-bleed sponsor-row">
+      <div class="h3">our partners</div>
+      <img :src="sponsorsImageOne" />
+      <img :src="sponsorsImageTwo" />
+      <img :src="sponsorsImageThree" />
+      <img :src="sponsorsImageFour" />
+    </div>
+    <div class="row full-bleed powered-by-row">
+      <div class="h3">powered by</div>
+      <img :src="poweredByImage" />
     </div>
 
 
@@ -813,7 +828,7 @@
   .footer {
     position: relative;
     width: 100%;
-    margin-top: 172px;
+    // margin-top: 172px;
     .col-7, .col-6, .col-5, .col-4 {
       >.content {
         padding-top: 72px;
@@ -890,6 +905,46 @@
     }
   }
 
+  // sponsors
+  .sponsor-row, .powered-by-row {
+    background: white;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    >.h3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      padding-top: 72px;
+      text-transform: capitalize;
+    }
+    >img {
+      transform: translateY(24px);
+      @media screen and (max-width: $mobile-max) {
+        position: relative;
+        // width: calc(100% - 48px);
+        // height: 100%;
+        padding: 36px; //100%;
+        transform: none;
+        // margin-top: 36px;
+        // margin-bottom: 36px;
+      }
+    }
+  }
+
+  .sponsor-row {
+    margin-top: 120px;
+  }
+
+  .powered-by-row {
+    background: $off-white;
+    >.h3 {
+      color: $grey;
+    }
+  }
+
 </style>
 
 <style lang="scss">
@@ -925,6 +980,7 @@
   import SmoothScroll from 'smooth-scroll'
   import "babel-polyfill";
   import axios from 'axios'
+  import cachedContent from './utils/cachedContent'
 
   export default {
     data() {
@@ -943,17 +999,37 @@
     },
     computed: {
       sectionOneBackground() {
-        if (!this.content.section_one_image) return ''
+        if (!this.content.section_one_image) {return ''}
         return "background-image: url('" + this.content.section_one_image.url + "')"
       },
       attendingBackground () {
-        if (!this.content.attendees_block_image) return ''
+        if (!this.content.attendees_block_image) {return ''}
         return "background-image: url('" + this.content.attendees_block_image.url + "')"
       },
       sponsorsBackground () {
-        if (!this.content.exhibitors_and_sponsors_block_image) return ''
+        if (!this.content.exhibitors_and_sponsors_block_image) {return ''}
         return "background-image: url('" + this.content.exhibitors_and_sponsors_block_image.url + "')"
-      }
+      },
+      sponsorsImageOne () {
+        if (!this.content.sponsor_image_1) {return ''}
+        return this.content.sponsor_image_1.url
+      },
+      sponsorsImageTwo () {
+        if (!this.content.sponsor_image_2) {return ''}
+        return this.content.sponsor_image_2.url
+      },
+      sponsorsImageThree () {
+        if (!this.content.sponsor_image_3) {return ''}
+        return this.content.sponsor_image_3.url
+      },
+      sponsorsImageFour () {
+        if (!this.content.sponsor_image_4) {return ''}
+        return this.content.sponsor_image_4.url
+      },
+      poweredByImage () {
+        if (!this.content.powered_by_image) {return ''}
+        return this.content.powered_by_image.url
+      },
     },
     methods: {
       playFormTransition () {
@@ -994,11 +1070,25 @@
       
       var context = this
 
-      axios.get('https://remode.wpengine.com/wp-json/acf/v3/pages/35')
+      var url = 'https://remode.wpengine.com/wp-json/acf/v3/pages/35'
+
+      if(window.location.href.indexOf('www') !== -1 && window.location.href.indexOf('remode.com') !== -1) {
+        console.log('www.remode.com detected')
+        url = 'https://www.remode.com/wp-json/acf/v3/pages/35'
+      }
+      else if(window.location.href.indexOf('remode.com') !== -1 ) {
+        console.log('remode.com detected')
+        url = 'https://remode.com/wp-json/acf/v3/pages/35'
+      }
+
+      axios.get(url)
       .then(function(response) {
         context.content = response.data.acf
         // console.log(context.content)
       })
+
+      // for development
+      this.content = cachedContent
       
       // move form content
 
