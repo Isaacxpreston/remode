@@ -174,6 +174,8 @@
       <img :src="sponsorsImageTwo" />
       <img :src="sponsorsImageThree" />
       <img :src="sponsorsImageFour" />
+      <img :src="sponsorsImageFive" />
+      <img :src="sponsorsImageSix" />
     </div>
     <div class="row full-bleed powered-by-row">
       <div class="h3">powered by</div>
@@ -1025,6 +1027,14 @@
       sponsorsImageFour () {
         if (!this.content.sponsor_image_4) {return ''}
         return this.content.sponsor_image_4.url
+      },
+      sponsorsImageFive () {
+        if (!this.content.sponsor_image_5) {return ''}
+        return this.content.sponsor_image_5.url
+      },
+      sponsorsImageSix () {
+        if (!this.content.sponsor_image_6) {return ''}
+        return this.content.sponsor_image_6.url
       },
       poweredByImage () {
         if (!this.content.powered_by_image) {return ''}
