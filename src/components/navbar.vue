@@ -95,7 +95,7 @@
     left: 0;
     height: 36px;
     width: 100%;
-    background-color: rgba(255, 0, 0, 0.15);
+    background-color: $off-black;
     background-repeat: no-repeat;
     background-position: top left;
     >.p {
@@ -147,7 +147,7 @@
       transform: translateY(-50%);
     }
     @media screen and (max-width: $tablet-max) {
-      width: calc(100% * (5/12));
+      width: calc(100% * (5/12) - 24px);
     }
     @media screen and (max-width: $mobile-max) {
       width: calc(50% - 24px);

@@ -5,12 +5,12 @@
     <navbar />
 
     <!-- main image row -->
-    <div class="row screen-height-min full-bleed first-row">
-      <div class="col-5 background-image-mobile" :style="sectionOneBackground"></div>
+    <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
+      <!-- <div class="col-5 background-image-mobile" :style="sectionOneBackground"></div> -->
       <div class="col-1"></div>
       <div class="col-5">
         <div class="content vert-center">
-            <div class="p small losAngeles">
+            <!-- <div class="p small losAngeles">
               <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)" stroke-dasharray="5" stroke-linecap="round">
                     <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
@@ -18,13 +18,13 @@
               </svg>
               <b>Los Angeles</b><br />
               Nov 13 & 14, 2018
-          </div>
+          </div> -->
           <h1>{{content.section_one_header}}</h1>
           <p class="large">{{content.section_one_body_text}}</p>
         </div>
       </div>
-      <div class="col-1"></div>
-      <div class="col-5 background-image" :style="sectionOneBackground"></div>
+      <div class="col-6"></div>
+      <!-- <div class="col-5 background-image" :style="sectionOneBackground"></div> -->
     </div>
 
     <!-- copy row -->
@@ -277,6 +277,9 @@
       .col-7 {
         width: calc((100% * (7/12))); // height: 100%;
       }
+      .col-12 {
+        width: 100%;
+      }
     }
   }
 
@@ -318,6 +321,11 @@
     width: calc((100% * (7/12)) - 24px); // height: 100%;
   }
 
+  .col-12 {
+    position: relative;
+    width: calc(100% - 24px); // height: 100%;
+  }
+
   .full-mobile {
     @media screen and (max-width: $mobile-max) {
       width: 100% !important;
@@ -332,6 +340,9 @@
 
   // header image row
   .first-row {
+    min-height: 55vw !important;
+    background-color: rgba(255, 0, 0, 0.15);
+    margin-top: 120px;
     @media screen and (max-width: $tablet-max) {
       margin-top: 76px; // not sure why in production this is needed.
     }
@@ -340,7 +351,8 @@
     }
     @media screen and (max-width: $mobile-max) {
       display: block;
-      margin-top: 0px;
+      // margin-top: 0px;
+      margin-top: 200px;
       .col-1 {
         display: none;
       }
@@ -930,6 +942,7 @@
   import reinvestText from './text/reinvest'
   import remarketText from './text/remarket'
   import bgSVG from '../assets/SVG/bg.svg'
+  import heroSVG from '../assets/SVG/heroSVG.svg'
 
 
 
@@ -959,7 +972,8 @@
         formTransitionClass: '',
         timeouts: [],
         content: cachedContent,
-        bgSVG
+        bgSVG,
+        heroSVG
       }
     },
     computed: {
