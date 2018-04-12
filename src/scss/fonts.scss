@@ -15,6 +15,11 @@
   src: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/fonts/Chrono/Chrono-Bold.otf') format('opentype')
 }
 
+@font-face {
+  font-family: 'GTWalsheimBold';
+  src: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/fonts/GTWalsheim/GT-Walsheim-Bold.otf') format('opentype')
+}
+
 h1,
 .h1 {
   /* Heading 1: */
@@ -23,10 +28,20 @@ h1,
   color: $black;
   letter-spacing: 0.5px;
   line-height: 36px;
+  &.h1-large {
+    font-family: 'GTWalsheimBold';
+  }
   @media screen and (min-width: $tablet-min) {
     font-size: 44px;
     letter-spacing: 0.73px;
     line-height: 60px;
+    &.h1-large {
+      font-family: 'GTWalsheimBold';
+      font-size: 72px;
+      letter-spacing: -2px;
+      line-height: 72px;
+      // font-weight: bold;
+    }
   }
 }
 
@@ -38,10 +53,16 @@ h2,
   color: $black;
   letter-spacing: 0.33px;
   line-height: 36px;
+  &.h2-large {
+    font-family: 'GTWalsheimBold';
+  }
   @media screen and (min-width: $tablet-min) {
     font-size: 38px;
     letter-spacing: 0.53px;
     line-height: 48px;
+    &.h2-large {
+      font-family: 'GTWalsheimBold';
+    }
   }
 }
 

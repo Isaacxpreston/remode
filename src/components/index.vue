@@ -4,27 +4,16 @@
     <splash />
     <navbar />
 
-    <!-- main image row -->
+    <!-- hero row -->
     <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
-      <!-- <div class="col-5 background-image-mobile" :style="sectionOneBackground"></div> -->
       <div class="col-1"></div>
-      <div class="col-5">
+      <div class="col-6">
         <div class="content vert-center">
-            <!-- <div class="p small losAngeles">
-              <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)" stroke-dasharray="5" stroke-linecap="round">
-                    <path d="M379.5,30.5 L379.5,77.5" id="Line" stroke="#082842" stroke-width="2"></path>
-                </g>
-              </svg>
-              <b>Los Angeles</b><br />
-              Nov 13 & 14, 2018
-          </div> -->
-          <h1>{{content.section_one_header}}</h1>
-          <p class="large">{{content.section_one_body_text}}</p>
+          <h1 class="h1-large">{{content.section_one_header}}</h1>
+          <p>{{content.section_one_body_text}}</p>
         </div>
       </div>
-      <div class="col-6"></div>
-      <!-- <div class="col-5 background-image" :style="sectionOneBackground"></div> -->
+      <div class="col-5"></div>
     </div>
 
     <!-- copy row -->
@@ -97,7 +86,7 @@
       <div class="col-6 full-tablet">
         <div class="content">
           <div class="attendees-text">
-            <div class="h2">Attendees</div>
+            <div class="h2 h2-large">Attendees</div>
             <p class="small">{{content.attendees_block_body_text}}
             </p>
             <button v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
@@ -108,7 +97,7 @@
       <div class="col-6 off-black full-tablet background-image" :style="{ 'background-image': 'url(' + bgSVG + ')' }">
         <div class="content">
           <div class="sponsor-text">
-            <div class="h2">Exhibitors and Sponsors</div> 
+            <div class="h2 h2-large">Exhibitors and Sponsors</div> 
             <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
             <button class="alternate" v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
           </div>
@@ -340,25 +329,37 @@
 
   // header image row
   .first-row {
+    border: 2px solid $off-black;
+    box-sizing: border-box;
+    width: calc(100% - 48px) !important;
+    margin-left: 24px !important;
     min-height: 55vw !important;
     background-color: rgba(255, 0, 0, 0.15);
-    margin-top: 120px;
-    @media screen and (max-width: $tablet-max) {
-      margin-top: 76px; // not sure why in production this is needed.
-    }
-    @media screen and (max-width: 790px) {
-      margin-top: 62px; // cont.
-    }
+    margin-top: 148px;
+    padding: 60px 0px;
+    // @media screen and (max-width: $tablet-max) {
+    //   // margin-top: 76px; // not sure why in production this is needed.
+    //   margin-top: 148px;
+    // }
+    // @media screen and (max-width: 790px) {
+    //   // margin-top: 62px; // cont.
+    //         margin-top: 148px;
+    // }
+
+    
     @media screen and (max-width: $mobile-max) {
       display: block;
-      // margin-top: 0px;
-      margin-top: 200px;
+      min-height: auto !important;
       .col-1 {
         display: none;
       }
-      .col-5:not(.background-image):not(.background-image-mobile) {
-        width: calc(100% - 48px) !important;
-        margin-left: 24px;
+      .col-6:not(.background-image):not(.background-image-mobile) {
+        .content {
+          padding: 60px 24px;
+        }
+        // width: calc(100% - 48px) !important;
+        // margin-left: 24px;
+        width: 100% !important;
         > div {
           transform: none;
         }
