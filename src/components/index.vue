@@ -80,7 +80,6 @@
       <div class="col-3 image-tile reinvest">
         <div class="content">
           <div class="image-underlay reinvest-underlay"></div>
-          <!-- <img src="https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/reinvest.png" /> -->
           <div class="text-logo text-reinvest">
               <reinvestText />
           </div>
@@ -95,35 +94,23 @@
     <!-- sideways text row -->
     <div class="row full-bleed screen-height-min with-margins">
 
-      <div class="col-6 off-black full-tablet">
+      <div class="col-6 full-tablet">
         <div class="content">
-          <!-- <div class="attendees-image" :style="attendingBackground"></div> -->
-          <!-- <div class="vertical-text-wrapper">
-            <div class="content">
-              <div class="h2">Attendees</div>
-            </div>
-          </div> -->
           <div class="attendees-text">
             <div class="h2">Attendees</div>
             <p class="small">{{content.attendees_block_body_text}}
             </p>
-            <button class="alternate" v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
+            <button v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
           </div>
         </div>
       </div>
 
-      <div class="col-6 full-tablet">
+      <div class="col-6 off-black full-tablet background-image" v-bind:style="{ 'background-image': 'url(' + bgSVG + ')' }">
         <div class="content">
-          <!-- <div class="sponsor-image" :style="sponsorsBackground"></div>
-          <div class="vertical-text-wrapper">
-            <div class="content">
-              <div class="vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> 
-            </div>
-          </div> -->
           <div class="sponsor-text">
             <div class="h2">Exhibitors and Sponsors</div> 
             <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
-            <button v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
+            <button class="alternate" v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
           </div>
         </div>
       </div>
@@ -619,34 +606,39 @@
     left: 0;
     right: 0;
     margin: auto;
-    // margin-top: 70%;
     top: 50%;
     transform: translateY(-50%);
     display: block !important;
-    p {
-      color: $black;
+    p, .h2 {
+      color: $white;
+    }
+    .h2 {
+      font-weight: bold;
     }
     @media screen and (max-width: $mobile-max) {
+      position: relative;
+      transform: none;
+      margin: 48px 24px;
       width: calc(100% - 48px);
     }
 
   } 
 
   .attendees-text {
-    p {
-      color: $white;
+    p, .h2 {
+      color: $black;
     }
   }
 
       button {
       position: relative;
-      margin-bottom: 68px;
+      // margin-bottom: 68px;
       margin-top: 24px;
       background: transparent;
       border: 1px solid $black;
       outline: 0 !important;
-      // border-radius: 100px;
-      border-radius: 0px;
+      border-radius: 100px;
+      // border-radius: 0px;
       text-transform: uppercase;
       padding-left: 24px !important;
       padding-right: 24px !important;
@@ -656,6 +648,7 @@
       cursor: pointer;
       @extend .utility ;
       transition: all 0.4s ease-in-out;
+      overflow: hidden;
       // &:hover {
       //   // background: $black;
       //   // border-color: $white;
@@ -699,6 +692,7 @@
         z-index: 1;
         transition: all 0.4s ease-in-out;
         transform-origin: 100% 50% !important;
+        border-radius: 100px;
       }
 
 
@@ -935,6 +929,9 @@
   import remakeText from './text/remake'
   import reinvestText from './text/reinvest'
   import remarketText from './text/remarket'
+  import bgSVG from '../assets/SVG/bg.svg'
+
+
 
   // icons
   import facebook from './icons/facebook'
@@ -961,7 +958,8 @@
         formToggleSponsoringClass: '',
         formTransitionClass: '',
         timeouts: [],
-        content: cachedContent
+        content: cachedContent,
+        bgSVG
       }
     },
     computed: {
