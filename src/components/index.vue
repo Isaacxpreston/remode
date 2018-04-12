@@ -94,37 +94,40 @@
 
     <!-- sideways text row -->
     <div class="row full-bleed screen-height-min with-margins">
+
       <div class="col-6 off-black full-tablet">
         <div class="content">
-          <div class="attendees-image" :style="attendingBackground"></div>
-          <!-- <div class="vertical-text h2">Attendees</div> -->
-          <div class="vertical-text-wrapper">
+          <!-- <div class="attendees-image" :style="attendingBackground"></div> -->
+          <!-- <div class="vertical-text-wrapper">
             <div class="content">
               <div class="h2">Attendees</div>
             </div>
-          </div>
+          </div> -->
           <div class="attendees-text">
+            <div class="h2">Attendees</div>
             <p class="small">{{content.attendees_block_body_text}}
             </p>
             <button class="alternate" v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
           </div>
         </div>
       </div>
+
       <div class="col-6 full-tablet">
         <div class="content">
-          <div class="sponsor-image" :style="sponsorsBackground"></div>
-          <!-- <div class="vertical-text vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> -->
+          <!-- <div class="sponsor-image" :style="sponsorsBackground"></div>
           <div class="vertical-text-wrapper">
             <div class="content">
               <div class="vertical-text-second h2">Exhibitors<span>a</span>and Sponsors</div> 
             </div>
-          </div>
+          </div> -->
           <div class="sponsor-text">
+            <div class="h2">Exhibitors and Sponsors</div> 
             <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
             <button v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
           </div>
         </div>
       </div>
+
     </div>
     
     <!-- stay tuned -->
@@ -218,13 +221,6 @@
   @import '../scss/colors';
   @import '../scss/fonts';
   @import '../scss/variables';
-  
-  // .main-container {
-  //   position: relative;
-  //   margin: auto;
-  //   width: 100%;
-  //   max-width: 1280px;
-  // }
 
   .off-black {
     background-color: $off-black;
@@ -485,9 +481,6 @@
       box-shadow: 0 2px 30px 0 rgba(0,0,0,0.30);
     }
     &:hover, &.hovered {
-      // .pattern-container {
-      //   // margin-top: 100%;
-      // }
       .p {
         opacity: 1;
       }
@@ -496,9 +489,6 @@
       }
     }
     @media screen and (max-width: $tablet-max) {
-      // .pattern-container {
-      //   // margin-top: 100%;
-      // }
       .p {
         opacity: 1 !important;
       }
@@ -579,36 +569,6 @@
     }
   }
 
-  .sponsor-image {
-    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/exhibitor_working.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/sponsors.png')
-  }
-
-  .attendees-image {
-    // background-image: url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/3-5-18/attendees_looking_at_phone.jpg'); // url('https://s3-us-west-2.amazonaws.com/remode-vpv/assets/image/attendees.png')
-  }
-
-  // old vertical text
-
-  .vertical-text {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 48px;
-    height: 48px;
-    transform: rotate(-90deg) translateX(-50%);
-    text-align: center;
-    color: $white;
-    margin-top: 46% !important;
-    margin-left: -34% !important;
-    word-wrap: initial !important;
-    &.vertical-text-second {
-      color: $black;
-      >span {
-        color: transparent !important;
-      }
-    }
-  }
-
   // new vertical text
   .vertical-text-wrapper {
     @include aspect-ratio(330,
@@ -654,9 +614,14 @@
   }
 
   .sponsor-text, .attendees-text {
+    position: absolute;
     width: 66%;
+    left: 0;
+    right: 0;
     margin: auto;
-    margin-top: 70%;
+    // margin-top: 70%;
+    top: 50%;
+    transform: translateY(-50%);
     display: block !important;
     p {
       color: $black;
@@ -996,7 +961,7 @@
         formToggleSponsoringClass: '',
         formTransitionClass: '',
         timeouts: [],
-        content: {}
+        content: cachedContent
       }
     },
     computed: {
@@ -1080,16 +1045,17 @@
       
       var context = this
 
-      var url = 'https://remode.wpengine.com/wp-json/acf/v3/pages/35'
+      // remove staging in production
+      var url = 'https://remode.staging.wpengine.com/wp-json/acf/v3/pages/35'
 
-      if(window.location.href.indexOf('www') !== -1 && window.location.href.indexOf('remode.com') !== -1) {
-        console.log('www.remode.com detected')
-        url = 'https://www.remode.com/wp-json/acf/v3/pages/35'
-      }
-      else if(window.location.href.indexOf('remode.com') !== -1 ) {
-        console.log('remode.com detected')
-        url = 'https://remode.com/wp-json/acf/v3/pages/35'
-      }
+      // if(window.location.href.indexOf('www') !== -1 && window.location.href.indexOf('remode.com') !== -1) {
+      //   console.log('www.remode.com detected')
+      //   url = 'https://www.remode.com/wp-json/acf/v3/pages/35'
+      // }
+      // else if(window.location.href.indexOf('remode.com') !== -1 ) {
+      //   console.log('remode.com detected')
+      //   url = 'https://remode.com/wp-json/acf/v3/pages/35'
+      // }
 
       axios.get(url)
       .then(function(response) {
@@ -1097,8 +1063,28 @@
         // console.log(context.content)
       })
 
+      axios.get('http://remode.staging.wpengine.com/sample-page/')
+      .then(function(response) {
+        // console.log('here')
+        // console.log(response.data.content.rendered)
+        // // console.log(document.querySelector('.test'))
+        // document.querySelector('.test').innerHTML = response.data.content.rendered
+        // setTimeout(() => {
+        //   var arr = document.querySelector('.test').getElementsByTagName('script')
+        //   console.log(arr[0])
+        //   // eval(arr[0])
+        //   eval(arr[0].innerHTML)
+        //   // for (var n = 0; n < arr.length; n++) {
+        //   //   eval(arr[n].innerHTML)//run script inside div
+        //   // }
+
+        // })
+        // console.log(response.data)
+        // document.querySelector('.test').innerHTML = response.data
+      })
+
       // for development
-      this.content = cachedContent
+      // this.content = cachedContent
       
       // move form content
 
