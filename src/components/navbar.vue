@@ -1,9 +1,10 @@
 <template>
   <div class="navbar">
+
     <div class="logoContainer" v-on:click="scrollToTop">
-      <logo />
+      <logoWithText />
     </div>
-    <div class="p small">
+    <!-- <div class="p small">
       <svg width="3px" height="48px" viewBox="0 0 3 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-378.000000, -29.000000)"
           stroke-dasharray="5" stroke-linecap="round">
@@ -12,11 +13,14 @@
       </svg>
       <b>Los Angeles</b>
       <br /> Nov 13 & 14, 2018
-    </div>
+    </div> -->
     <div class="button" v-on:click="scrollToForm">
       <div>
         Stay Updated
       </div>
+    </div>
+    <div class="bottomBar" :style="{ 'background-image': 'url(' + bottomBarSVG + ')' }">
+      <div class="p">The Game Changing Event for Innovative & Sustainable Fashion</div>
     </div>
   </div>
 </template>
@@ -24,10 +28,18 @@
 <script>
   import SmoothScroll from 'smooth-scroll'
   import logo from './logo'
+  import logoWithText from './logoWithText'
+  import bottomBarSVG from '../assets/SVG/bottomBar.svg'
 
   export default {
+    data () {
+      return {
+        bottomBarSVG
+      }
+    },
     components: {
-      logo
+      logo,
+      logoWithText
     },
     methods: {
       scrollToForm() {
@@ -53,55 +65,81 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 108px;
+    height: 120px;
     background: $off-white;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-    @media screen and (max-width: $mobile-max) {
-      height: 60px;
-    }
-  }
-
-  .logoContainer,
-  .p.small {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
   }
 
   .logoContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
     cursor: pointer;
     margin-left: 24px;
+    margin-top: 12px;
+    height: calc(100% - 24px - 36px);
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
     @media screen and (max-width: $mobile-max) {
-      margin-left: 0px;
-      width: 50%;
+      margin-left: 12px;
+      width: calc(50% - 24px);
       text-align: center;
     }
   }
 
-  .p.small {
-    margin-left: calc(25% + 24px);
-    >svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-top: -4px;
-      margin-left: -12px;
-    }
-    @media screen and (max-width: $mobile-max) {
-      display: none;
+  .bottomBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 36px;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.15);
+    background-repeat: no-repeat;
+    background-position: top left;
+    >.p {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $white;
+      text-align: right;
+      margin-right: 10%;
+      @media screen and (max-width: $tablet-max) {
+        display: none;
+      }
     }
   }
+
+  // .p.small {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 0;
+  //   transform: translateY(-50%);
+  //   margin-left: calc(25% + 24px);
+  //   >svg {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     margin-top: -4px;
+  //     margin-left: -12px;
+  //   }
+  //   @media screen and (max-width: $mobile-max) {
+  //     display: none;
+  //   }
+  // }
 
   .button {
     position: absolute;
     top: 0;
     right: 0;
+    margin-top: 12px;
+    margin-right: 24px;
     color: $white;
     background: $off-black;
     cursor: pointer;
-    width: calc(100% * (3/12) - 6px);
-    height: 100%;
+    width: calc(100% * (3/12) - 6px - 24px);
+    height: calc(100% - 24px - 36px);
     text-align: center;
     >div {
       position: relative;
@@ -112,7 +150,8 @@
       width: calc(100% * (5/12));
     }
     @media screen and (max-width: $mobile-max) {
-      width: 50%;
+      width: calc(50% - 24px);
+      margin-right: 12px;
     }
 
 

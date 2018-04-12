@@ -105,7 +105,7 @@
         </div>
       </div>
 
-      <div class="col-6 off-black full-tablet background-image" v-bind:style="{ 'background-image': 'url(' + bgSVG + ')' }">
+      <div class="col-6 off-black full-tablet background-image" :style="{ 'background-image': 'url(' + bgSVG + ')' }">
         <div class="content">
           <div class="sponsor-text">
             <div class="h2">Exhibitors and Sponsors</div> 

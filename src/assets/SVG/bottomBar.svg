@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="36px" viewBox="0 0 1440 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nav" transform="translate(0.000000, -84.000000)">
+            <g id="banner" transform="translate(0.000000, 84.000000)">
+                <g id="Group">
+                    <rect id="BG" fill="#203D54" transform="translate(968.000000, 18.000000) scale(1, -1) translate(-968.000000, -18.000000) " x="496" y="0" width="944" height="36"></rect>
+                    <polygon id="reinvest" fill="#F70CF7" transform="translate(439.000000, 18.000000) scale(1, -1) translate(-439.000000, -18.000000) " points="372 0 496 0 506 36 372 36"></polygon>
+                    <polygon id="remarket" fill="#513BF4" transform="translate(315.000000, 18.000000) scale(1, -1) translate(-315.000000, -18.000000) " points="248 0 372 0 382 36 248 36"></polygon>
+                    <polygon id="remake" fill="#04E400" transform="translate(191.000000, 18.000000) scale(1, -1) translate(-191.000000, -18.000000) " points="124 0 248 0 258 36 124 36"></polygon>
+                    <polygon id="rethink" fill="#40DFF7" transform="translate(67.000000, 18.000000) scale(1, -1) translate(-67.000000, -18.000000) " points="0 0 124 0 134 36 0 36"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
