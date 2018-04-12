@@ -82,8 +82,9 @@
       width: 100%;
       height: 100%;
     }
-    @media screen and (max-width: $mobile-max) {
+    @media screen and (max-width: 680px) {
       margin-left: 12px;
+      margin-top: 21px;
       width: calc(50% - 24px);
       text-align: center;
     }
@@ -97,7 +98,11 @@
     width: 100%;
     background-color: $off-black;
     background-repeat: no-repeat;
-    background-position: top left;
+    @media screen and (max-width: 680px) {
+      height: 18px;
+      background-size: cover;
+      background-position: -24px 0px;
+    }
     >.p {
       position: relative;
       top: 50%;
@@ -105,29 +110,12 @@
       color: $white;
       text-align: right;
       margin-right: 10%;
+      font-family: 'GTWalsheimMedium';
       @media screen and (max-width: $tablet-max) {
         display: none;
       }
     }
   }
-
-  // .p.small {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 0;
-  //   transform: translateY(-50%);
-  //   margin-left: calc(25% + 24px);
-  //   >svg {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     margin-top: -4px;
-  //     margin-left: -12px;
-  //   }
-  //   @media screen and (max-width: $mobile-max) {
-  //     display: none;
-  //   }
-  // }
 
   .button {
     position: absolute;
@@ -141,6 +129,7 @@
     width: calc(100% * (3/12) - 6px - 24px);
     height: calc(100% - 24px - 36px);
     text-align: center;
+    max-width: 200px;
     >div {
       position: relative;
       top: 50%;
@@ -149,9 +138,10 @@
     @media screen and (max-width: $tablet-max) {
       width: calc(100% * (5/12) - 24px);
     }
-    @media screen and (max-width: $mobile-max) {
+    @media screen and (max-width: 680px) {
       width: calc(50% - 24px);
       margin-right: 12px;
+      margin-top: 21px;
     }
 
 

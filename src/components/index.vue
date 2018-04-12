@@ -4,164 +4,169 @@
     <splash />
     <navbar />
 
-    <!-- hero row -->
-    <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
-      <div class="col-1"></div>
-      <div class="col-6">
-        <div class="content vert-center">
-          <h1 class="h1-large">{{content.section_one_header}}</h1>
-          <p>{{content.section_one_body_text}}</p>
-        </div>
-      </div>
-      <div class="col-5"></div>
-    </div>
 
-    <!-- copy row -->
-    <div class="row full-bleed with-margins second-row">
-      <div class="col-1"></div>
-      <div class="col-5">
-        <div class="content">
-          <h2>{{content.section_two_header}}</h2>
-          <p class="small extra-line-height">{{content.section_two_body_text}}</p>
+    <div class="max-width-container">
+      <!-- hero row -->
+      <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <div class="content vert-center">
+            <h1 class="h1-large">{{content.section_one_header}}</h1>
+            <h3>{{content.section_one_body_text}}</h3>
+          </div>
         </div>
+        <div class="col-5"></div>
       </div>
-      <div class="col-6"></div>
-    </div>
 
-    <!-- color tiles row -->
-    <div class="row overflow-hidden">
-      <div class="col-3 image-tile rethink">
-        <div class="content">
-          <div class="image-underlay rethink-underlay"></div>
-          <div class="text-logo text-rethink">
-              <rethinkText />
+      <!-- copy row -->
+      <div class="row full-bleed with-margins-large second-row">
+        <div class="col-1"></div>
+        <div class="col-5">
+          <div class="content">
+            <h2 class="h2-large">{{content.section_two_header}}</h2>
+            <p class="small extra-line-height">{{content.section_two_body_text}}</p>
           </div>
-          <div class="pattern-container">
-            <thinkPattern />
-          </div>
-          <div class="p large shift-p">{{content.rethink_tile_text}}</div>
         </div>
-      </div>  
-      <div class="col-3 image-tile remake">
-        <div class="content">
-          <div class="image-underlay remake-underlay"></div>
-          <div class="text-logo text-remake">
-              <remakeText />
-          </div>
-          <div class="pattern-container">
-            <makePattern />
-          </div>
-          <div class="p large shift-p">{{content.remake_tile_text}}</div>
-        </div>
+        <div class="col-6"></div>
       </div>
-      <div class="col-3 image-tile remarket">
-        <div class="content">
-          <div class="image-underlay remarket-underlay"></div>
-          <div class="text-logo text-remarket">
-              <remarketText />
-          </div>
-          <div class="pattern-container">
-            <marketPattern />
-          </div>
-          <div class="p large shift-p">{{content.remarket_tile_text}}</div>
-        </div>
-      </div>
-      <div class="col-3 image-tile reinvest">
-        <div class="content">
-          <div class="image-underlay reinvest-underlay"></div>
-          <div class="text-logo text-reinvest">
-              <reinvestText />
-          </div>
-          <div class="pattern-container">
-            <investPattern />
-          </div>
-          <div class="p large shift-p">{{content.reinvest_tile_text}}</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- sideways text row -->
-    <div class="row full-bleed screen-height-min with-margins">
-
-      <div class="col-6 full-tablet">
-        <div class="content">
-          <div class="attendees-text">
-            <div class="h2 h2-large">Attendees</div>
-            <p class="small">{{content.attendees_block_body_text}}
-            </p>
-            <button v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
+      <!-- color tiles row -->
+      <div class="row overflow-hidden">
+        <div class="col-3 image-tile rethink">
+          <div class="content">
+            <div class="image-underlay rethink-underlay"></div>
+            <div class="text-logo text-rethink">
+                <rethinkText />
+            </div>
+            <div class="pattern-container">
+              <thinkPattern />
+            </div>
+            <div class="p large shift-p">{{content.rethink_tile_text}}</div>
+          </div>
+        </div>  
+        <div class="col-3 image-tile remake">
+          <div class="content">
+            <div class="image-underlay remake-underlay"></div>
+            <div class="text-logo text-remake">
+                <remakeText />
+            </div>
+            <div class="pattern-container">
+              <makePattern />
+            </div>
+            <div class="p large shift-p">{{content.remake_tile_text}}</div>
+          </div>
+        </div>
+        <div class="col-3 image-tile remarket">
+          <div class="content">
+            <div class="image-underlay remarket-underlay"></div>
+            <div class="text-logo text-remarket">
+                <remarketText />
+            </div>
+            <div class="pattern-container">
+              <marketPattern />
+            </div>
+            <div class="p large shift-p">{{content.remarket_tile_text}}</div>
+          </div>
+        </div>
+        <div class="col-3 image-tile reinvest">
+          <div class="content">
+            <div class="image-underlay reinvest-underlay"></div>
+            <div class="text-logo text-reinvest">
+                <reinvestText />
+            </div>
+            <div class="pattern-container">
+              <investPattern />
+            </div>
+            <div class="p large shift-p">{{content.reinvest_tile_text}}</div>
           </div>
         </div>
       </div>
 
-      <div class="col-6 off-black full-tablet background-image" :style="{ 'background-image': 'url(' + bgSVG + ')' }">
-        <div class="content">
-          <div class="sponsor-text">
-            <div class="h2 h2-large">Exhibitors and Sponsors</div> 
-            <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
-            <button class="alternate" v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
+      <!-- attendees/sponsors text row -->
+      <div class="row full-bleed screen-height with-margins attendees-sponsors-row">
+
+        <div class="col-6 full-tablet">
+          <div class="content">
+            <div class="attendees-text">
+              <div class="h2 h2-large">Attendees</div>
+              <p class="small">{{content.attendees_block_body_text}}
+              </p>
+              <button v-on:click="scrollToForm('formAttendingClass', 'formToggleAttendingClass')">Sign Up</button>
+            </div>
           </div>
+        </div>
+
+        <div class="col-6 off-black full-tablet background-image" :style="{ 'background-image': 'url(' + bgSVG + ')' }">
+          <div class="content">
+            <div class="sponsor-text">
+              <div class="h2 h2-large">Exhibitors and Sponsors</div> 
+              <p class="small">{{content.exhibitors_and_sponsors_block_body_text}}</p>
+              <button class="alternate" v-on:click="scrollToForm('formSponsoringClass', 'formToggleSponsoringClass')">Sign Up</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- stay tuned -->
+      <div class="form-toggle form-title formScroll">
+        <div class="h2">Stay Tuned for Updates</div>
+      </div>
+
+
+      <!-- form wrapper -->
+      <div class="form-wrapper">
+
+      <!-- form buttons -->
+      <div class="form-toggle">
+        <div class="form-toggle-button" :class="formToggleAttendingClass" v-on:click="toggleForm('formAttendingClass', 'formToggleAttendingClass')">
+          <div class="h3 vert-center">Attending</div>
+        </div>
+        <div class="form-toggle-button" :class="formToggleSpeakingClass" v-on:click="toggleForm('formSpeakingClass', 'formToggleSpeakingClass')">
+          <div class="h3 vert-center">Speaking</div>
+        </div>
+        <div class="form-toggle-button" :class="formToggleSponsoringClass" v-on:click="toggleForm('formSponsoringClass', 'formToggleSponsoringClass')">
+          <div class="h3 vert-center">Exhibiting /Sponsoring</div>
         </div>
       </div>
 
-    </div>
-    
-    <!-- stay tuned -->
-    <div class="form-toggle form-title formScroll">
-      <div class="h2">Stay Tuned for Updates</div>
-    </div>
-
-
-    <!-- form wrapper -->
-    <div class="form-wrapper">
-
-    <!-- form buttons -->
-    <div class="form-toggle">
-      <div class="form-toggle-button" :class="formToggleAttendingClass" v-on:click="toggleForm('formAttendingClass', 'formToggleAttendingClass')">
-        <div class="h3 vert-center">Attending</div>
+      <!-- form injects -->
+      <div class="nf-content-speaking-container" :class="formSpeakingClass">
       </div>
-      <div class="form-toggle-button" :class="formToggleSpeakingClass" v-on:click="toggleForm('formSpeakingClass', 'formToggleSpeakingClass')">
-        <div class="h3 vert-center">Speaking</div>
+
+      <div class="nf-content-attending-container" :class="formAttendingClass">
       </div>
-      <div class="form-toggle-button" :class="formToggleSponsoringClass" v-on:click="toggleForm('formSponsoringClass', 'formToggleSponsoringClass')">
-        <div class="h3 vert-center">Exhibiting /Sponsoring</div>
+
+      <div class="nf-content-sponsoring-container" :class="formSponsoringClass">
       </div>
+
+
+      <!-- overlay -->
+      <div class="form-transition-overlay" :class="formTransitionClass"></div>
+
+      </div>
+
+      <!-- sponsors -->
+      <div class="row full-bleed sponsor-row">
+        <div class="h3">our partners</div>
+        <img :src="sponsorsImageOne" />
+        <img :src="sponsorsImageTwo" />
+        <img :src="sponsorsImageThree" />
+        <img :src="sponsorsImageFour" />
+        <img :src="sponsorsImageFive" />
+        <img :src="sponsorsImageSix" />
+      </div>
+
     </div>
-
-    <!-- form injects -->
-    <div class="nf-content-speaking-container" :class="formSpeakingClass">
-    </div>
-
-    <div class="nf-content-attending-container" :class="formAttendingClass">
-    </div>
-
-    <div class="nf-content-sponsoring-container" :class="formSponsoringClass">
-    </div>
-
-
-    <!-- overlay -->
-    <div class="form-transition-overlay" :class="formTransitionClass"></div>
-
-    </div>
+    <!-- end 1440px container -->
 
 
 
-    <!-- sponsors -->
-    <div class="row full-bleed sponsor-row">
-      <div class="h3">our partners</div>
-      <img :src="sponsorsImageOne" />
-      <img :src="sponsorsImageTwo" />
-      <img :src="sponsorsImageThree" />
-      <img :src="sponsorsImageFour" />
-      <img :src="sponsorsImageFive" />
-      <img :src="sponsorsImageSix" />
-    </div>
+    <!-- powered by -->
     <div class="row full-bleed powered-by-row">
       <div class="h3">powered by</div>
       <img :src="poweredByImage" />
     </div>
-
-
 
 
     <!-- footer -->
@@ -197,6 +202,11 @@
   @import '../scss/colors';
   @import '../scss/fonts';
   @import '../scss/variables';
+
+  .max-width-container {
+    max-width: 1440px;
+    margin: auto;
+  }
 
   .off-black {
     background-color: $off-black;
@@ -242,8 +252,12 @@
       }
     }
     &.with-margins {
-      margin-top: 72px;
+      margin-top: 24px;
       margin-bottom: 72px;
+    }
+    &.with-margins-large {
+      margin-top: 120px;
+      margin-bottom: 120px;
     }
     &.full-bleed {
       width: 100%;
@@ -333,51 +347,36 @@
     box-sizing: border-box;
     width: calc(100% - 48px) !important;
     margin-left: 24px !important;
-    min-height: 55vw !important;
-    background-color: rgba(255, 0, 0, 0.15);
-    margin-top: 148px;
-    padding: 60px 0px;
-    // @media screen and (max-width: $tablet-max) {
-    //   // margin-top: 76px; // not sure why in production this is needed.
-    //   margin-top: 148px;
-    // }
-    // @media screen and (max-width: 790px) {
-    //   // margin-top: 62px; // cont.
-    //         margin-top: 148px;
-    // }
-
-    
+    min-height: calc(100vh - 48px - 120px) !important;
+    margin-top: 144px;
+    // padding: 60px 0px;
+    padding-bottom: 60px;
+    background-size: contain;
+    background-position: center center;
     @media screen and (max-width: $mobile-max) {
       display: block;
       min-height: auto !important;
-      .col-1 {
+      background-size: cover !important;
+      background-position: top left;
+      .col-1, .col-5 {
         display: none;
       }
       .col-6:not(.background-image):not(.background-image-mobile) {
         .content {
           padding: 60px 24px;
         }
-        // width: calc(100% - 48px) !important;
-        // margin-left: 24px;
         width: 100% !important;
         > div {
           transform: none;
         }
-      }
-      .background-image {
-        display: none;
-      }
-      .background-image-mobile {
-        display: block !important;
-        width: 100% !important;
-        height: calc(100vh - 120px) !important;
-        // @include aspect-ratio(330, 380)
       }
     }
   }
 
   // experience remode row
   .second-row {
+    width: calc(100% - 48px) !important;
+    margin-left: 24px !important;
     @media screen and (max-width: $tablet-max) {
       display: block;
       .col-1, .col-6 {
@@ -613,6 +612,12 @@
     } 
   }
 
+  .attendees-sponsors-row {
+    @media screen and (min-width: $desktop-min) {
+      max-height: 518px;
+    }
+  }
+
   .sponsor-text, .attendees-text {
     position: absolute;
     width: 66%;
@@ -632,6 +637,7 @@
       position: relative;
       transform: none;
       margin: 48px 24px;
+      // padding: 72px 0px;
       width: calc(100% - 48px);
     }
 
@@ -754,15 +760,21 @@
     position: relative;
     width: calc(100% / 3);
     height: 100%;
-    background: $off-white;
+
+    background: rgba(132, 148, 161, 0.05);
     cursor: pointer;
     box-sizing: border-box;
     border-bottom: 1px solid transparent;
     text-align: center;
     border-bottom: 2px solid #8494A1;
+    border-right: 1px solid #ddd;
     transition: all 0.4s ease-in-out;
     &:hover, &.hovered {
-      border-bottom: 2px solid $black;
+      // background: // blue;
+          background: $off-white;
+      // background: #8494A1;
+      border-bottom: 8px solid $black;
+
     }
   }
 
@@ -896,11 +908,13 @@
     }
     >img {
       transform: translateY(24px);
+      margin: 12px;
       @media screen and (max-width: $mobile-max) {
         position: relative;
         // width: calc(100% - 48px);
         // height: 100%;
         padding: 36px; //100%;
+
         transform: none;
         // margin-top: 36px;
         // margin-bottom: 36px;

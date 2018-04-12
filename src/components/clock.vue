@@ -27,6 +27,9 @@
     padding-top: 48px;
     >div {
       position: relative;
+      .h2 {
+        font-size: calc(42px + 1vw);
+      }
       .h2,
       .utility {
         color: $white;
