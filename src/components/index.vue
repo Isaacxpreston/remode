@@ -9,13 +9,13 @@
       <!-- hero row -->
       <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
         <div class="col-1"></div>
-        <div class="col-6">
+        <div class="col-5">
           <div class="content vert-center">
             <h1 class="h1-large">{{content.section_one_header}}</h1>
-            <h3>{{content.section_one_body_text}}</h3>
+            <h3 class="h3-large">{{content.section_one_body_text}}</h3>
           </div>
         </div>
-        <div class="col-5"></div>
+        <div class="col-6"></div>
       </div>
 
       <!-- copy row -->
@@ -357,11 +357,11 @@
       display: block;
       min-height: auto !important;
       background-size: cover !important;
-      background-position: top left;
-      .col-1, .col-5 {
+      // background-position: top left;
+      .col-1, .col-6 {
         display: none;
       }
-      .col-6:not(.background-image):not(.background-image-mobile) {
+      .col-5:not(.background-image):not(.background-image-mobile) {
         .content {
           padding: 60px 24px;
         }
@@ -389,8 +389,12 @@
     }
     @media screen and (max-width: $mobile-max) {
       .col-5 {
-        width: calc(100% - 48px) !important;
-        margin-left: 24px;
+        width: 100% !important; // calc(100% - 24px) !important;
+        // margin-left: 0px;
+        // margin-right: 0px;
+        // // margin-left: 12px;
+        // // width: calc(100% - 48px) !important;
+        // // margin-left: 12px;
       }
     }
   }
@@ -632,6 +636,7 @@
     }
     .h2 {
       font-weight: bold;
+      margin-bottom: 12px;
     }
     @media screen and (max-width: $mobile-max) {
       position: relative;
