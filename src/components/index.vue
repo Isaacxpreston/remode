@@ -9,13 +9,13 @@
       <!-- hero row -->
       <div class="row screen-height-min full-bleed first-row background-image" :style="{ 'background-image': 'url(' + heroSVG + ')' }">
         <div class="col-1"></div>
-        <div class="col-5">
+        <div class="col-6">
           <div class="content vert-center">
             <h1 class="h1-large">{{content.section_one_header}}</h1>
             <h3 class="h3-large">{{content.section_one_body_text}}</h3>
           </div>
         </div>
-        <div class="col-6"></div>
+        <div class="col-5"></div>
       </div>
 
       <!-- copy row -->
@@ -85,7 +85,7 @@
       <!-- attendees/sponsors text row -->
       <div class="row full-bleed screen-height with-margins attendees-sponsors-row">
 
-        <div class="col-6 full-tablet">
+        <div class="col-6 full-tablet background-image" :style="{ 'background-image': 'url(' + bgSVGLighter + ')' }">
           <div class="content">
             <div class="attendees-text">
               <div class="h2 h2-large">Attendees</div>
@@ -343,14 +343,14 @@
 
   // header image row
   .first-row {
-    border: 2px solid $off-black;
+    // border: 2px solid $off-black;
     box-sizing: border-box;
     width: calc(100% - 48px) !important;
     margin-left: 24px !important;
     min-height: calc(100vh - 48px - 120px) !important;
     margin-top: 144px;
     // padding: 60px 0px;
-    padding-bottom: 60px;
+    // padding-bottom: 60px;
     background-size: contain;
     background-position: center center;
     @media screen and (max-width: $mobile-max) {
@@ -358,10 +358,10 @@
       min-height: auto !important;
       background-size: cover !important;
       // background-position: top left;
-      .col-1, .col-6 {
+      .col-1, .col-5 {
         display: none;
       }
-      .col-5:not(.background-image):not(.background-image-mobile) {
+      .col-6:not(.background-image):not(.background-image-mobile) {
         .content {
           padding: 60px 24px;
         }
@@ -962,6 +962,7 @@
   import reinvestText from './text/reinvest'
   import remarketText from './text/remarket'
   import bgSVG from '../assets/SVG/bg.svg'
+  import bgSVGLighter from '../assets/SVG/bgLighter.svg'
   import heroSVG from '../assets/SVG/heroSVG.svg'
 
 
@@ -993,6 +994,7 @@
         timeouts: [],
         content: cachedContent,
         bgSVG,
+        bgSVGLighter,
         heroSVG
       }
     },
