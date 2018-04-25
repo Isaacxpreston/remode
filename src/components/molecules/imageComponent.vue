@@ -18,9 +18,8 @@
       }
     },
     mounted () {
-      var context = this
-      var downloadingImage = new Image()
-      downloadingImage.onload = () => { 
+      let downloadingImage = new Image()
+      downloadingImage.onload = () => {
         this.styles['background-image'] = "url('" + this.image + "')"
         this.classes['loaded'] = true
       }
