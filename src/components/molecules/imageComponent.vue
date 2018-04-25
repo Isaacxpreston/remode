@@ -35,18 +35,6 @@
   .image-component {
     @include absolute-full;
     @include background-full;
-    &::after {
-      content: ' ';
-      @include absolute-full;
-      background-color: $white;
-      opacity: 1;
-      transition: all 0.25s ease;
-      transition-delay: 0.25s;
-    }
-    &.loaded {
-      &::after {
-        opacity: 0;
-      }
-    }
+    @include after-overlay;
   }
 </style>

@@ -66,3 +66,19 @@
   width: 100%;
   background: rgba(255, 0, 0, 0.15);
 }
+
+@mixin after-overlay {
+  &::after {
+    content: ' ';
+    @include absolute-full;
+    background-color: $white;
+    opacity: 1;
+    transition: all 0.25s ease;
+    transition-delay: 0.25s;
+  }
+  &.loaded {
+    &::after {
+      opacity: 0;
+    }
+  }
+}

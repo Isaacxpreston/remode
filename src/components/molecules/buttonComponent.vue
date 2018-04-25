@@ -1,16 +1,19 @@
 <template>
-  <div class="button" :data-text="text" @click="openUrl(url)" >
+  <div class="button" :class="[lightClass]" :data-text="text" @click="openUrl(url)" >
     <div>{{text}}</div>
   </div>
 </template>
 
 <script>
+import openUrl from '../mixins/openUrl'
 export default {
-  props: ['text', 'url'],
-  // todo: add nav method
-  methods: {
-    openUrl (url) {
-      if (url) window.open(url, '_blank')
+  props: ['text', 'light'],
+  mixins: [openUrl],
+  computed: {
+    lightClass () {
+      return {
+        'button--light': this.light
+      }
     }
   }
 }
@@ -24,11 +27,11 @@ export default {
 
   .button {
     position: relative;
+    box-sizing: border-box;
     color: $white;
     background: $off-black;
     cursor: pointer;
-    width: calc(100% * (3/12) - 6px - 24px);
-    height: calc(100% - 24px - 36px);
+    width: 100%;
     text-align: center;
     max-width: 200px;
     border-radius: 100px;
@@ -37,15 +40,6 @@ export default {
     >div {
       @include vert-center;
     }
-    @media screen and (max-width: $tablet-max) {
-      width: calc(100% * (5/12) - 24px);
-    }
-    @media screen and (max-width: 680px) {
-      width: calc(50% - 24px);
-      margin-right: 12px;
-      margin-top: 21px;
-    }
-    // rollover state
     &::after {
       content: attr(data-text);
       position: absolute;
@@ -56,10 +50,9 @@ export default {
       text-transform: uppercase;
       transform: translateY(-50%);
       z-index: 2;
-      transition-delay: 0.4s;
+      transition-delay: 0.2s;
       opacity: 0;
     }
-
     &::before {
       position: absolute;
       content: ' ';
@@ -72,7 +65,17 @@ export default {
       transition: all 0.4s ease-in-out;
       transform-origin: 100% 50% !important;
     }
-
+    &--light {
+      color: $off-black;
+      background: $white;
+      border: 4px solid $off-black;
+      &::before {
+        background: $off-black;
+      }
+      &::after {
+        color: $white;
+      }
+    }
     &:hover {
       &::before {
         right: initial;
@@ -81,7 +84,6 @@ export default {
       }
       &::after {
         opacity: 1;
-        transition-delay: 0s;
       }
     }
   }

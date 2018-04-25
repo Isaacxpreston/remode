@@ -5,15 +5,13 @@
 
       <h1>sandbox</h1>
 
-      <buttonComponent text="get your pass" url="http://google.com" />
+      <buttonComponent text="button dark" url="http://google.com" />
 
       <br />
 
-      <!-- <p>image card</p>
+      <buttonComponent text="button light" url="http://google.com" light="true" />
 
-      <div class="image-card">
-        <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
-      </div> -->
+      <br />
 
       <p> session card </p>
 
@@ -29,13 +27,18 @@
 
       <div class="testimonial-card">
         <div class="content">
-          <div class="img-block"></div>
+
+          <iconComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/03/NYFTL.png" url="http://google.com" />
+
+          <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis.”</p>
         </div>
       </div>
 
       <p>video card</p>
 
-      <div class="video-card"></div>
+      <div class="video-card">
+        <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
+      </div>
 
       <p>news card</p>
 
@@ -73,6 +76,7 @@
 
 <script>
   import imageComponent from './molecules/imageComponent'
+  import iconComponent from './molecules/iconComponent'
   import buttonComponent from './molecules/buttonComponent'
 
   export default {
@@ -80,6 +84,7 @@
     components: {
       imageComponent,
       buttonComponent,
+      iconComponent
     }
   }
 
@@ -114,13 +119,11 @@
     @include ratio-card(375, 180);
     >.content {
       position: relative;
+      background: rgba(255, 0, 0, 0.15);
       width: 100%;
-      margin: 24px;
-      .img-block {
-        position: relative;
-        background: blue;
-        width: 48px;
-        height: 48px;
+      padding: 24px;
+      >.icon-image {
+        margin-bottom: 12px;
       }
     }
   }
