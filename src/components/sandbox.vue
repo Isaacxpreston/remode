@@ -3,7 +3,7 @@
 
     <div class="sandbox-container">
 
-      <h1>sandbox</h1>
+      <h1>molecules sandbox</h1>
 
       <buttonComponent text="button dark" url="http://google.com" />
 
