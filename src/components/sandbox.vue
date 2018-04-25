@@ -1,9 +1,41 @@
 <template>
   <div>
 
-    <div class="sandbox-container">
+    <!-- grid test -->
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1">
+        <div class="col-content">
+          <speakerCard />
+        </div>
 
-      <h1>molecules sandbox</h1>
+      </div>
+      <div class="col-lg-2">
+        <div class="col-content">
+          <speakerCard />
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="col-content">
+          <speakerCard />
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="col-content">
+          <speakerCard />
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="col-content">
+          <speakerCard />
+        </div>
+      </div>
+    </div>
+
+
+    <!-- components -->
+    <div class="sandbox-container" style="display: none">
+
+      <h1>atoms sandbox</h1>
 
       <buttonComponent text="button dark" url="http://google.com" />
 
@@ -55,18 +87,7 @@
 
       <p>speaker card</p>
 
-      <div class="speaker-card">
-        <div class="speaker-card__image">
-          <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
-        </div>
-        <div class="speaker-card__content">
-          <div class="speaker-card__inner">
-            <div class="utility uppercase">rethink</div>
-            <h5>lorem ipsum</h5>
-            <p class="p small">title, company</p>
-          </div>
-        </div>
-      </div>
+      <speakerCard />
 
     </div>
 
@@ -75,16 +96,19 @@
 </template>
 
 <script>
-  import imageComponent from './molecules/imageComponent'
-  import iconComponent from './molecules/iconComponent'
-  import buttonComponent from './molecules/buttonComponent'
+  import imageComponent from './atoms/imageComponent'
+  import iconComponent from './atoms/iconComponent'
+  import buttonComponent from './atoms/buttonComponent'
+
+  import speakerCard from './molecules/speakerCard'
 
   export default {
 
     components: {
       imageComponent,
       buttonComponent,
-      iconComponent
+      iconComponent,
+      speakerCard
     }
   }
 
@@ -93,6 +117,23 @@
 <style scoped lang="scss">
   @import '../scss/mixins';
   @import '../scss/variables';
+
+  .row {
+    position: relative;
+    background: rgba(255, 0, 0, 0.15);
+    >div {
+      background: rgba(255, 0, 0, 0.15);
+    }
+  }
+
+  .col-content {
+    position: relative;
+    margin: auto;
+    width: 100%; // width: calc(100% - 12px);
+    background: rgba(255, 0, 0, 0.25);
+  }
+
+
 
   .sandbox-container {
     position: relative;
@@ -142,42 +183,9 @@
     >.news-card__content {
       position: relative;
       background: rgba(255, 0, 0, 0.15);
-      padding: 24px; 
+      padding: 24px;
       >h5 {
         margin: 12px 0px;
-      }
-    }
-  }
-
-  .speaker-card {
-    position: relative;
-    width: 100%;
-    background: rgba(255, 0, 0, 0.15);
-    >.speaker-card__image {
-      @include ratio-card(1, 1);
-    }
-    >.speaker-card__content {
-      position: relative;
-      background: rgba(255, 0, 0, 0.15);
-      >.speaker-card__inner {
-        position: relative;
-        padding: 12px;
-        >.utility {
-          margin-bottom: 12px;
-        }
-      }
-    }
-    @media screen and (max-width: $mobile-max) {
-      display: flex;
-      >.speaker-card__image {
-        width: 33%;
-      }
-      >.speaker-card__content {
-        width: 66%;
-        @include center-flex;
-        >.speaker-card__inner {
-          text-align: center;
-        }
       }
     }
   }
