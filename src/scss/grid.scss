@@ -1,6 +1,7 @@
 // http://flexboxgrid.com/
 // https://github.com/kristoferjoseph/flexboxgrid
 
+@import './variables';
 $padding: 12px;
 
 //
@@ -273,7 +274,8 @@ $padding: 12px;
   order: 1;
 }
 
-@media only screen and (min-width: 48em) {
+// xs-min
+@media only screen and (min-width: $mobile-min /*48em*/) {
   .container {
     width: 49rem;
   }
@@ -504,7 +506,9 @@ $padding: 12px;
   }
 }
 
-@media only screen and (min-width: 64em) {
+
+// sm-min
+@media only screen and (min-width: $tablet-min /*64em*/) {
   .container {
     width: 65rem;
   }
@@ -735,7 +739,8 @@ $padding: 12px;
   }
 }
 
-@media only screen and (min-width: 75em) {
+// md-min
+@media only screen and (min-width: $desktop-min /*75em*/) {
   .container {
     width: 76rem;
   }

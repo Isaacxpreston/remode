@@ -6,8 +6,8 @@
     <div class="speaker-card__content">
       <div class="speaker-card__inner">
         <div class="utility uppercase">rethink</div>
-        <h5>lorem ipsum</h5>
-        <p class="p small">title, company</p>
+        <h5 class="capitalize">lorem ipsum</h5>
+        <p class="p small capitalize">title, company</p>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
         }
       }
     }
-    @media screen and (max-width: $mobile-max) {
+    @media screen and (max-width: $tablet-max) {
       display: flex;
       >.speaker-card__image {
         width: 33%;

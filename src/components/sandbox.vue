@@ -1,35 +1,36 @@
 <template>
   <div>
 
-    <!-- grid test -->
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-1">
-        <div class="col-content">
-          <speakerCard />
-        </div>
+    <!-- hero section -->
+    
+    <!-- row -->
 
-      </div>
-      <div class="col-lg-2">
-        <div class="col-content">
+      <div class="row hero-row">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-lg-offset-1 hero-row__content">
+          <h1 class="bold">The Premier Event for Disruptive and Sustainable Fashion</h1>
+          <h3 class="bold">Fashion is changing for the better. </h3>
+          <p>REMODE is a vertical-focused fashion event offering innovative solutions to disruption, from the yarn to the final
+            customer.
+          </p>
+          <buttonComponent text="get your pass" url="http://google.com" light="true" />
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+          <speakerCard />
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 ">
+          <speakerCard />
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 ">
           <speakerCard />
         </div>
       </div>
-      <div class="col-lg-2">
-        <div class="col-content">
-          <speakerCard />
-        </div>
-      </div>
-      <div class="col-lg-2">
-        <div class="col-content">
-          <speakerCard />
-        </div>
-      </div>
-      <div class="col-lg-2">
-        <div class="col-content">
-          <speakerCard />
-        </div>
-      </div>
-    </div>
+
+      <!-- row -->
+        <!-- carousel controls -->
+        <!-- clock -->
+      <!-- end row -->
+
+    <!-- end row -->
 
 
     <!-- components -->
@@ -120,7 +121,9 @@
 
   .row {
     position: relative;
-    background: rgba(255, 0, 0, 0.15);
+    width: calc(100% - 24px);
+    margin: auto;
+    background: rgba(255, 0, 0, 0.15); // margin: 0px;
     >div {
       background: rgba(255, 0, 0, 0.15);
     }
@@ -133,6 +136,36 @@
     background: rgba(255, 0, 0, 0.25);
   }
 
+  .hero-row {
+    // padding-top is whitespace from nav to content
+    // todo: move one layer up, as .hero-row will be a nested slider
+    padding-top: 72px;
+    @media screen and (max-width: $tablet-max) {
+      padding-top: 48px;
+    }
+  }
+
+  .hero-row__content {
+    >h1, >h3 {
+      margin-bottom: 12px
+    }
+    >h1 {
+      @media screen and (max-width: $tablet-max) {
+        margin-bottom: 36px;
+      }
+    }
+    >p {
+      margin-bottom: 24px;
+      @media screen and (max-width: $tablet-max) {
+        margin-bottom: 36px;
+      }
+    }
+    >.button {
+      @media screen and (max-width: $tablet-max) {
+        display: none;
+      }
+    }
+  }
 
 
   .sandbox-container {

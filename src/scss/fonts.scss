@@ -33,7 +33,7 @@ h1,
   font-family: 'GTWalsheimMedium';
   font-size: 30px;
   color: $black;
-  letter-spacing: 0.5px;
+  letter-spacing: -1px; // 0.5px;
   line-height: 36px;
   &.h1-large {
     font-family: 'GTWalsheimBold';
@@ -182,4 +182,8 @@ a,
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.bold {
+  font-family: 'GTWalsheimBold';
 }
