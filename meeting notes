@@ -1,0 +1,41 @@
+see  https://drive.google.com/file/d/0B-wYr9eOP5UPVHMxenVQVUpGNV9TRGkzLTJVYWxfcV9WZkhN/view
+
+FOR ALL
+  light/dark text
+  background color + image
+
+additional header
+  include social media
+  logins etc are links out
+
+new carousels
+  cta
+  header
+  copy
+
+  carosel
+
+    3 cards
+      can reference
+        news model
+        speaker model
+        sponsors model (Asset + text) -> 
+          sponsors model is
+            asset
+            url
+            testimonial
+            light/dark image
+
+ticker
+  asset (not content model)
+  OR just point to asset but remove url/not clickable
+
+
+asset left/text right
+  asset sets margin (no whitespace in dev)
+
+
+'videos + testimonials"
+  sponsors model logo + copy
+
+  video image + thumbnail

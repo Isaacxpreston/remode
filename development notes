@@ -1,0 +1,121 @@
+sections
+
+  __ static/non-repeatable
+
+    -> header
+      _ display notes
+        mobile
+          hamburger menu instead of links
+          banner text hidden
+      _ content
+        links
+        cta button
+        banner text
+        logo
+
+    -> hero area
+      _ display notes
+        desktop
+          'see you in' is bottom right
+        mobile
+          'see you in' is bottom center
+      _ content
+        carousel with asset and cta button per slide
+        'see you in' countdown
+
+    -> footer
+      _ content
+        footer copy
+        footer links
+        social links
+        logo
+
+  __ repeatable (in order from design)
+
+    -> ticker marquee
+      _ content
+        list of logo assets
+
+    -> asset left/text right
+      _ display notes
+        mobile
+          asset is hidden, text assumes full width
+      _ content
+        asset left
+        text right
+        background image or color
+
+    -> text left/text right
+      _ content
+        text left
+        cta left
+        background image or color left
+        text right
+        cta right
+        background image or color right
+
+    -> video carousel +  cards carousel
+      _ content
+        list of video assets
+        list of cards with asset + copy
+        background image or color
+    
+    -> 'EXPERIENCE REMODE'
+      _ display notes
+        5 content views
+        clicking header cta goes to default view
+        desktop
+          squiggle assets layer underneath speaker cards
+      _ content
+        header
+          background image or color
+          header
+          copy
+        body
+          5 views
+            3 speaker cards
+              squiggle (or color dropdown potentially)
+              asset
+              header
+              title/company
+            text cards header
+            3 text cards 
+              header
+              copy
+          background image or color
+
+      -> text marquee
+        _ display notes
+          mobile
+            hidden
+        _ content
+          list of copy + color of copy
+
+      -> 'REMODE NEWS'
+        _ content
+          3 news cards
+            asset
+            topic
+            header
+            copy
+            link out (?)
+
+      -> sponsors/partners/powered by 
+        _ display notes
+          desktop
+            4 per row
+          mobile
+            2 per row
+        _ content 
+          header
+          list of assets
+
+      
+
+
+    
+    
+
+
+
+
