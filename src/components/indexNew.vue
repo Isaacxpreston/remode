@@ -423,7 +423,7 @@
   // image tiles
 
   .image-tile {
-    @include aspect-ratio(330, 380);
+    @include aspect-ratio-old(330, 380);
     cursor: pointer;
     transition: all 0.4s ease-in-out;
     >.content {
@@ -562,7 +562,7 @@
 
  // sponsor section
   .sponsor-image, .attendees-image {
-    @include aspect-ratio(330,
+    @include aspect-ratio-old(330,
     380);
     position: absolute;
     top: 0;
@@ -579,7 +579,7 @@
 
   // new vertical text
   .vertical-text-wrapper {
-    @include aspect-ratio(330,
+    @include aspect-ratio-old(330,
     380);
     position: absolute !important;
     top: 0 !important;
