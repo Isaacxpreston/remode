@@ -14,8 +14,10 @@
     "babel-polyfill": "^6.26.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "slick-carousel": "^1.8.1",
     "smooth-scroll": "^12.1.5",
     "style-loader": "^0.20.2",
+    "swiper": "^4.2.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
