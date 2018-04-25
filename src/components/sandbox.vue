@@ -3,20 +3,20 @@
 
     <h1>sandbox</h1>
 
-    <div class="image-container">
-      <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
-    </div>
-
-    <br />
-    <br />
-
     <buttonComponent text="get your pass" url="http://google.com" />
 
     <br />
 
-    <p> sessions card </p>
+    <p>image card</p>
 
-    <div class="sessions-card">
+    <!-- speaker card = image card -->
+    <div class="image-card">
+      <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
+    </div>
+
+    <p> session card </p>
+
+    <div class="session-card">
       <div class="content">
         <div class="utility uppercase">rethink / speaker</div>
         <h5>lorem ipsum</h5>
@@ -24,7 +24,23 @@
       </div>
     </div>
 
-    <p></p>
+    <p>testimonial card</p>
+
+    <div class="testimonial-card">
+      <div class="content">
+        <div class="img-block"></div>
+      </div>
+    </div>
+
+    <p>video card</p>
+
+    <div class="video-card"></div>
+
+    <p>news card</p>
+
+    <div class="news-card">
+      <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
+    </div>
 
 
   </div>
@@ -38,7 +54,7 @@
 
     components: {
       imageComponent,
-      buttonComponent
+      buttonComponent,
     }
   }
 
@@ -47,17 +63,12 @@
 <style scoped lang="scss">
   @import '../scss/mixins';
 
-  .image-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
+  .image-card {
+    @include ratio-card(1, 1);
   }
 
-  .sessions-card {
-    @include aspect-ratio(447, 156);
-    @include center-flex;
-    width: 100%;
-    background: rgba(255, 0, 0, 0.15);
+  .session-card {
+    @include ratio-card(447, 156);
     >.content {
       position: relative;
       margin: 24px;
@@ -67,6 +78,27 @@
     }
   }
 
-  // 375 / 180
+  .testimonial-card {
+    @include ratio-card(375, 180);
+    >.content {
+      position: relative;
+      width: 100%;
+      margin: 24px;
+      .img-block {
+        position: relative;
+        background: blue;
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+
+  .video-card {
+    @include ratio-card(684, 385)
+  }
+
+  .news-card {
+    @include ratio-card(330, 220);
+  }
 
 </style>

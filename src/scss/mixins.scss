@@ -58,3 +58,11 @@
   display: flex;
   justify-content: center;
 }
+
+
+@mixin ratio-card ($width, $height) {
+  @include aspect-ratio($width, $height);
+  @include center-flex;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.15);
+}
