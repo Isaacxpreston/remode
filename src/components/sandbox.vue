@@ -3,7 +3,13 @@
 
     <!-- hero section -->
 
+    <p> hero carousel </p>
+
     <heroCarousel />
+
+    <p>heavy text</p>
+
+    <heavyText />
 
 
     <!-- components -->
@@ -80,6 +86,7 @@
   import speakerCard from './molecules/speakerCard'
 
   import heroCarousel from './organisms/heroCarousel'
+  import heavyText from './organisms/heavyText'
 
   export default {
 
@@ -88,7 +95,8 @@
       buttonComponent,
       iconComponent,
       speakerCard,
-      heroCarousel
+      heroCarousel,
+      heavyText
     }
   }
 

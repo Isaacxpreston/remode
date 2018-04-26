@@ -1,7 +1,6 @@
 <template>
   <div class="navbar">
 
-
     <!-- <div>dlc etc</div> -->
 
     <div class="logoContainer" v-on:click="scrollToTop">

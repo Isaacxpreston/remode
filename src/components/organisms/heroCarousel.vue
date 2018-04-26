@@ -7,12 +7,12 @@
     </heroSlide>
 
     <!-- controls + clock -->
-    <div class="row">
+    <div class="row row--full">
       <div class="col-lg-2 col-xs-12 col-lg-offset-5">
         <div class="slide-button" v-for="(slide, index) in slides" :key="index" @click="showSlide(index)">{{index}}</div>
       </div>
       <div class="col-lg-3 col-xs-12 col-lg-offset-2">
-        <p class="text-right">Countdown clock will go here</p>
+        <p class="text-right">clock will go here</p>
       </div>
     </div>
 
@@ -42,15 +42,8 @@
         ]
       }
     },
-    // computed: {
-
-    // },
     methods: {
-      //       isCurrentSlide (index) {
-      //   return this.currentSlide === index
-      // },
       showSlide(index) {
-        console.log('showing', index)
         this.currentSlide = index
       }
     },
@@ -66,12 +59,6 @@
 <style scoped lang="scss">
   @import '../../scss/variables';
 
-
-  .swiper-container {
-    background: rgba(0, 0, 255, 0.15);
-  } // .swiper-slide {
-  //   // background: blue;
-  // }
   .row {
     position: relative;
     width: calc(100% - 24px);
