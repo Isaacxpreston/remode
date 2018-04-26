@@ -56,9 +56,7 @@
 
       <p>video card</p>
 
-      <div class="video-card">
-        <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
-      </div>
+      <!-- <videoCard /> -->
 
       <p>news card</p>
 

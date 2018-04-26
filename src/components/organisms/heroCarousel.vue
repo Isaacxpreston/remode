@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import Swiper from 'Swiper'
   import heroSlide from './heroSlide'
 
   export default {

@@ -29,15 +29,3 @@
 .text-right {
   text-align: right;
 }
-
-// row modifier
-
-.row--full {
-  position: relative;
-  width: calc(100% - 24px);
-  margin: auto !important;
-  >div {
-    position: relative;
-    background: rgba(255, 0, 0, 0.15);
-  }
-}

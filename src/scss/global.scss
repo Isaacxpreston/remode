@@ -9,3 +9,34 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+// row modifier
+
+.row--full {
+  position: relative;
+  width: calc(100% - 24px);
+  margin: auto !important;
+  >div {
+    position: relative;
+    background: rgba(255, 0, 0, 0.15);
+  }
+}
+
+
+// carousel 
+
+.carousel-dot {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background: $white;
+  border: 2px solid $off-black;
+  border-radius: 100%;
+  opacity: 1;
+  &:hover, &.active, &.swiper-pagination-bullet-active {
+    background: $off-black;
+  }
+}
