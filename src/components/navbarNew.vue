@@ -54,7 +54,8 @@
   @import '../scss/variables';
 
   .navbar {
-    position: fixed;
+    // position: fixed;
+    position: relative;
     z-index: 99;
     top: 0;
     left: 0;

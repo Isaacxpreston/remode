@@ -1,6 +1,10 @@
 <template>
   <div>
 
+    <p>navbar</p>
+
+    <navBarNew />
+
     <!-- modules -->
 
     <p> hero carousel </p>
@@ -34,6 +38,10 @@
     <p>ticker with text</p>
 
     <ticker type="text" />
+
+    <!-- <p>sponsors/partners/powered by row</p> -->
+
+    
 
     <!-- components -->
 
@@ -92,6 +100,8 @@
   import news from './organisms/news'
   import ticker from './organisms/ticker'
 
+  import navBarNew from './navbarNew'
+
   export default {
 
     components: {
@@ -106,7 +116,8 @@
       pillars,
       testimonials,
       news,
-      ticker
+      ticker,
+      navBarNew
     }
   }
 
