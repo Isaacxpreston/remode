@@ -11,6 +11,10 @@
 
     <heavyText />
 
+    <p>split text</p>
+
+    <splitText />
+
 
     <!-- components -->
     <div class="sandbox-container" style="display: none">
@@ -87,6 +91,7 @@
 
   import heroCarousel from './organisms/heroCarousel'
   import heavyText from './organisms/heavyText'
+  import splitText from './organisms/splitText'
 
   export default {
 
@@ -96,7 +101,8 @@
       iconComponent,
       speakerCard,
       heroCarousel,
-      heavyText
+      heavyText,
+      splitText
     }
   }
 
@@ -106,15 +112,6 @@
   @import '../scss/mixins';
   @import '../scss/variables';
 
-  // .row {
-  //   position: relative;
-  //   width: calc(100% - 24px);
-  //   margin: auto;
-  //   background: rgba(255, 0, 0, 0.15); // margin: 0px;
-  //   >div {
-  //     background: rgba(255, 0, 0, 0.15);
-  //   }
-  // }
 
   .col-content {
     position: relative;
