@@ -27,9 +27,13 @@
 
     <pillars />
 
-    <p>tickers</p>
+    <p>ticker with assets</p>
 
     <ticker />
+
+    <p>ticker with text</p>
+
+    <ticker type="text" />
 
     <!-- components -->
 
