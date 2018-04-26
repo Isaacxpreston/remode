@@ -1,11 +1,12 @@
 <template>
   <div class="row row--full testimonials">
 
-    <!-- videos carousel -->
-    <div class="col-lg-6 col-lg-offset-1 testimonials__videos">
-      <div class="testimonials__videos-swiper">
+    <!-- videos -->
+    <div class="col-lg-6 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 testimonials__videos">
 
-
+      <div class="videos-swiper">
+        
+        <!-- cards -->
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -21,38 +22,28 @@
               <videoCard />
             </div>
           </div>
-          <!-- Add Pagination -->
-          <!-- <div class="swiper-pagination"></div> -->
-          <!-- Add Arrows -->
-          <!-- <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> -->
         </div>
 
+        <!-- controls -->
+        <div class="videos-swiper__controls">
+          <div class="videos-swiper__pagination"></div>
 
-        <!-- <videoCard /> -->
-        <div class="testimonials__videos-swiper__controls">
-          
-
-          <div class="swiper-pagination--video"></div>
-<!--           
-          <carouselDot />
-          <carouselDot />
-          <carouselDot />
-          <carouselDot /> -->
-
-          <div class="swiper-left">
-            <carouselArrow direction="left" />
-          </div>
-          <div class="swiper-right">
-            <carouselArrow direction="right" />
+          <div class="videos-swiper__arrows hide-tablet hide-mobile">
+            <div class="videos-swiper__previous">
+              <carouselArrow direction="left" />
+            </div>
+            <div class="videos-swiper__next">
+              <carouselArrow direction="right" />
+            </div>
           </div>
 
         </div>
+
       </div>
     </div>
 
-    <!-- testimonials carousel -->
-    <div class="col-lg-4 col-lg-offset-1">
+    <!-- testimonials -->
+    <div class="col-lg-4 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 ">
       <div class="testimonials__card-container">
         <testimonialCard />
       </div>
@@ -83,15 +74,15 @@
         spaceBetween: 30,
         // loop: true,
       pagination: {
-        el: '.swiper-pagination--video',
+        el: '.videos-swiper__pagination',
         clickable: true,
         renderBullet: function (index, className) {
           return '<div class="' + className + ' carousel-dot"></div>';
         },
       },
         navigation: {
-          nextEl: '.swiper-right',
-          prevEl: '.swiper-left',
+          nextEl: '.videos-swiper__next',
+          prevEl: '.videos-swiper__previous',
         },
       });
     },
@@ -123,7 +114,6 @@
     width: 100%;
     margin: 24px 0px;
     &:nth-child(even) {
-      // display: none;
       transform: translateX(-20%);
     }
     @media screen and (max-width: $tablet-max) {
@@ -135,18 +125,40 @@
 
   .testimonials__videos {
     @include center-flex;
+    overflow: hidden;
   }
 
-  .testimonials__videos-swiper {
+  .videos-swiper {
     position: relative;
     width: 100%;
     background: rgba(255, 0, 0, 0.15);
   }
 
-  .testimonials__videos-swiper__controls {
+  .videos-swiper__controls {
     position: relative;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     margin-top: 24px;
+    background: rgba(255, 0, 0, 0.15);
+    @media screen and (max-width: $tablet-max) {
+      justify-content: center;
+    }
+  }
+
+  .videos-swiper__previous, .videos-swiper__next {
+    user-select: none;
+    outline: 0;
+    &.swiper-button-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  .videos-swiper__arrows {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 72px;
     background: rgba(255, 0, 0, 0.15);
   }
 

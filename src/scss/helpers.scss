@@ -2,19 +2,19 @@
 
 .hide-mobile {
   @media screen and (min-width: $mobile-min) and (max-width: $mobile-max) {
-    display: none;
+    display: none !important;
   }
 }
 
 .hide-tablet {
   @media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
-    display: none;
+    display: none !important;
   }
 }
 
 .hide-desktop {
   @media screen and (min-width: $desktop-min) {
-    display: none;
+    display: none !important;
   }
 }
 
