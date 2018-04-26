@@ -27,6 +27,10 @@
 
     <pillars />
 
+    <p>tickers</p>
+
+    <ticker />
+
     <!-- components -->
 
     <div class="sandbox-container" style="display: none">
@@ -82,6 +86,7 @@
   import pillars from './organisms/pillars'
   import testimonials from './organisms/testimonials'
   import news from './organisms/news'
+  import ticker from './organisms/ticker'
 
   export default {
 
@@ -96,7 +101,8 @@
       splitText,
       pillars,
       testimonials,
-      news
+      news,
+      ticker
     }
   }
 
