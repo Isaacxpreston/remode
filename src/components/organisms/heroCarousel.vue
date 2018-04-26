@@ -7,9 +7,10 @@
     </heroSlide>
 
     <!-- controls + clock -->
-    <div class="row row--full">
-      <div class="col-lg-2 col-xs-12 col-lg-offset-5">
-        <div class="slide-button" v-for="(slide, index) in slides" :key="index" @click="showSlide(index)">{{index}}</div>
+    <div class="row row--full carousel-controls-row">
+      <div class="col-lg-2 col-xs-12 col-lg-offset-5 carousel-dot-container">
+        <!-- todo: toggle active class -->
+        <div class="carousel-dot" v-for="(slide, index) in slides" :key="index" @click="showSlide(index)"></div>
       </div>
       <div class="col-lg-3 col-xs-12 col-lg-offset-2">
         <p class="text-right">clock will go here</p>
@@ -77,6 +78,21 @@
     background: rgba(255, 0, 0, 0.25);
     color: white;
     cursor: pointer;
+  }
+
+  .carousel-controls-row {
+    padding-top: 24px;
+    @media screen and (max-width: $tablet-max) {
+      padding-top: 36px;
+    }
+  }
+
+  .carousel-dot-container {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
   }
 
 </style>

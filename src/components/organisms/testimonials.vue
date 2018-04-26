@@ -7,7 +7,7 @@
       <div class="videos-swiper">
         
         <!-- cards -->
-        <div class="swiper-container">
+        <div class="swiper-container videos-swiper__container">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <videoCard />
@@ -68,8 +68,19 @@
   import Swiper from 'Swiper'
 
   export default {
+    data () {
+      return {
+        swiper: null,
+
+      }
+    },
     mounted() {
-      var swiper = new Swiper('.swiper-container', {
+
+      // todo: add unique classes on container and controls to allow multiple instances of testimonial component on one page
+      // ie .videos-swiper__container[data-instance="some unique alphanumeric string here"]
+      // similar to style scoping on components
+
+      this.swiper = new Swiper('.videos-swiper__container', {
         slidesPerView: 1,
         spaceBetween: 30,
         // loop: true,

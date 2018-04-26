@@ -20,11 +20,13 @@
 
     <testimonials />
 
+    <p>pillars</p>
 
-    <!-- <p>pillars</p>
+    <pillars />
 
-    <pillars /> -->
+    <p>news</p>
 
+    <news />
 
     <!-- components -->
 
@@ -97,6 +99,7 @@
   import splitText from './organisms/splitText'
   import pillars from './organisms/pillars'
   import testimonials from './organisms/testimonials'
+  import news from './organisms/news'
 
   export default {
 
@@ -111,6 +114,7 @@
       splitText,
       pillars,
       testimonials,
+      news
     }
   }
 
