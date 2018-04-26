@@ -5,7 +5,6 @@
     <div class="col-lg-5 hide-tablet hide-mobile">
       <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
     </div>
-    <!--  -->
 
     <!-- copy -->
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 heavy-text__copy">
@@ -24,7 +23,6 @@
         quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
         veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
     </div>
-    <!--  -->
 
   </div>
 </template>

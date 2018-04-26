@@ -1,5 +1,7 @@
 <template>
   <div class="row row--full split-text">
+
+    <!-- left copy -->
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 split-text__col">
       <div class="split-text__content">
         <h2>Attendees</h2>
@@ -9,6 +11,8 @@
         <buttonComponent text="get your pass" url="http://google.com" light="true" />
       </div>
     </div>
+
+    <!-- right copy -->
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 split-text__col">
       <div class="split-text__content">
         <h2>Exhibitors & Sponsors</h2>
@@ -17,6 +21,7 @@
         <buttonComponent text="get in touch" url="http://google.com" light="true" />
       </div>
     </div>
+    
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <!-- hero section -->
+    <!-- modules -->
 
     <p> hero carousel </p>
 
@@ -16,7 +16,18 @@
     <splitText />
 
 
+    <p>testimonials</p>
+
+    <testimonials />
+
+
+    <!-- <p>pillars</p>
+
+    <pillars /> -->
+
+
     <!-- components -->
+
     <div class="sandbox-container" style="display: none">
 
       <h1>atoms sandbox</h1>
@@ -41,14 +52,7 @@
 
       <p>testimonial card</p>
 
-      <div class="testimonial-card">
-        <div class="content">
-
-          <iconComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/03/NYFTL.png" url="http://google.com" />
-
-          <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis.”</p>
-        </div>
-      </div>
+      <testimonialCard />
 
       <p>video card</p>
 
@@ -88,10 +92,13 @@
   import buttonComponent from './atoms/buttonComponent'
 
   import speakerCard from './molecules/speakerCard'
+  import testimonialCard from './molecules/testimonialCard'
 
   import heroCarousel from './organisms/heroCarousel'
   import heavyText from './organisms/heavyText'
   import splitText from './organisms/splitText'
+  import pillars from './organisms/pillars'
+  import testimonials from './organisms/testimonials'
 
   export default {
 
@@ -100,9 +107,12 @@
       buttonComponent,
       iconComponent,
       speakerCard,
+      testimonialCard,
       heroCarousel,
       heavyText,
-      splitText
+      splitText,
+      pillars,
+      testimonials,
     }
   }
 
@@ -137,19 +147,6 @@
         @media screen and (max-width: $mobile-max) {
           margin-bottom: 12px;
         }
-      }
-    }
-  }
-
-  .testimonial-card {
-    @include ratio-card(375, 180);
-    >.content {
-      position: relative;
-      background: rgba(255, 0, 0, 0.15);
-      width: 100%;
-      padding: 24px;
-      >.icon-image {
-        margin-bottom: 12px;
       }
     }
   }
