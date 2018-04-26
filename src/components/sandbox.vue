@@ -20,9 +20,9 @@
 
     <testimonials />
 
-    <p>pillars</p>
+    <!-- <p>pillars</p>
 
-    <pillars />
+    <pillars /> -->
 
     <p>news</p>
 
@@ -62,7 +62,7 @@
 
       <p>news card</p>
 
-      <div class="news-card">
+      <!-- <div class="news-card">
         <div class="news-card__image">
           <imageComponent image="http://remode.staging.wpengine.com/wp-content/uploads/2018/02/Image.png" />
         </div>
@@ -71,7 +71,7 @@
           <h5>lorem ipsum</h5>
           <p class="p small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis.y</p>
         </div>
-      </div>
+      </div> -->
 
       <p>speaker card</p>
 
@@ -153,25 +153,25 @@
     }
   }
 
-  .video-card {
-    @include ratio-card(684, 385)
-  }
+  // .video-card {
+  //   @include ratio-card(684, 385)
+  // }
 
-  .news-card {
-    position: relative;
-    width: 100%;
-    background: rgba(255, 0, 0, 0.15);
-    >.news-card__image {
-      @include ratio-card(330, 220);
-    }
-    >.news-card__content {
-      position: relative;
-      background: rgba(255, 0, 0, 0.15);
-      padding: 24px;
-      >h5 {
-        margin: 12px 0px;
-      }
-    }
-  }
+  // .news-card {
+  //   position: relative;
+  //   width: 100%;
+  //   background: rgba(255, 0, 0, 0.15);
+  //   >.news-card__image {
+  //     @include ratio-card(330, 220);
+  //   }
+  //   >.news-card__content {
+  //     position: relative;
+  //     background: rgba(255, 0, 0, 0.15);
+  //     padding: 24px;
+  //     >h5 {
+  //       margin: 12px 0px;
+  //     }
+  //   }
+  // }
 
 </style>
